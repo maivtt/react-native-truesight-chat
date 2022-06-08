@@ -2,14 +2,17 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-truesight-chat": ["./src/index"]
+      "react-native-truesight-chat": ["./src/index"],
+      "assets/*": [
+        "./example/assets/"
+      ]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "esModuleInterop": true,
     "importsNotUsedAsValues": "error",
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
+    "jsx": "react-native",
     "lib": ["esnext"],
     "module": "esnext",
     "moduleResolution": "node",
@@ -22,6 +25,24 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "checkJs": false,
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "isolatedModules": true,
+    "listEmittedFiles": true,
+    "noEmit": true,
+    "outDir": "dist",
+    "removeComments": false,
+    "skipDefaultLibCheck": true,
+    "sourceMap": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false
   }
 }

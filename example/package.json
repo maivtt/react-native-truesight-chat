@@ -6,16 +6,25 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start"
+    "start": "react-native start",
+    "extract": "i18next-extractor -i src/ -o src/i18n/ -p src/i18n/ extract",
+    "merge": "i18next-extractor -i src/ -o src/i18n/ -p src/i18n/ merge"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.6",
+    "@types/react-native": "^0.67.8",
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-native-svg-transformer": "^1.0.0",
+    "ts-nameof.macro": "^4.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/runtime": "^7.12.5",
     "babel-plugin-module-resolver": "^4.0.0",
-    "metro-react-native-babel-preset": "^0.64.0"
+    "metro-react-native-babel-preset": "^0.64.0",
+    "metro-react-native-babel-transformer": "^0.71.0",
+    "react-native-postcss-transformer": "^1.2.4",
+    "react-native-sass-transformer": "^2.0.0"
   }
 }
