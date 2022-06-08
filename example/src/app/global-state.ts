@@ -1,6 +1,5 @@
 import React from 'reactn';
-import type {AppLanguage} from 'src/types/AppLanguage';
-import {appStorage} from 'src/app/app-storage';
+import { appStorage } from './app-storage';
 
 export class GlobalState {
   /**
@@ -12,7 +11,7 @@ export class GlobalState {
     });
   }
 
-  public get language(): AppLanguage {
+  public get language(): string {
     return React.getGlobal<GlobalState>().language;
   }
 
@@ -28,6 +27,26 @@ export class GlobalState {
   public async setTimeout(timeout: Date | undefined) {
     await React.setGlobal<GlobalState>({
       timeout,
+    });
+  }
+
+  public get token(): string {
+    return React.getGlobal<GlobalState>().token;
+  }
+
+  public async setToken(token: string) {
+    await React.setGlobal<GlobalState>({
+      token,
+    });
+  }
+
+  public get refreshToken(): string {
+    return React.getGlobal<GlobalState>().refreshToken;
+  }
+
+  public async setRefreshToken(refreshToken: string) {
+    await React.setGlobal<GlobalState>({
+      refreshToken,
     });
   }
 }

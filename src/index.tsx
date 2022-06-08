@@ -1,10 +1,13 @@
-import type { Conversation, ConversationFilter } from './models/Conversation';
+import atomicStyles from 'react-native-atomic-styles/src/styles.scss';
+import type { Conversation, ConversationFilter } from 'src/models';
 import type { Observable } from 'rxjs';
 
+export * from './models';
+
 interface TruesightChatOptions {
-  listConversation: (
-    conversationFilter: ConversationFilter
-  ) => Observable<Conversation[]>;
+  listConversation: typeof TruesightChat['listConversation'];
+
+  atomicStyles?: typeof TruesightChat['atomicStyles'];
 }
 
 class TruesightChat {
@@ -12,13 +15,22 @@ class TruesightChat {
     conversationFilter: ConversationFilter
   ) => Observable<Conversation[]>;
 
+  public static atomicStyles: typeof atomicStyles = atomicStyles;
+
   public static config(options: TruesightChatOptions) {
     if (options.listConversation) {
       this.listConversation = options.listConversation;
     } else {
-      console.log('Missing listConversation');
+      console.error('Missing list conversation');
+    }
+    if (options.atomicStyles) {
+      this.atomicStyles = options.atomicStyles;
     }
   }
 }
 
 export default TruesightChat;
+
+export interface TruesightThemeExtension {
+  messageBackgroundColor?: string;
+}

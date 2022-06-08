@@ -2,14 +2,21 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import nameof from 'ts-nameof.macro';
 
 export class AppStorage {
-  /**
-   * User login token
-   *
-   * @enum {string}
-   */
   public token?: string | null;
 
   public refreshToken?: string | null;
+
+  public get language(): Promise<string> {
+    return AsyncStorage.getItem(nameof(AppStorage.prototype.language)).then(
+      () => {
+        return 'vi';
+      }
+    );
+  }
+
+  public async setLanguage(lang: string): Promise<void> {
+    await AsyncStorage.setItem(nameof(AppStorage.prototype.language), lang);
+  }
 
   public async setToken(token: string): Promise<void> {
     this.token = token;
@@ -18,7 +25,7 @@ export class AppStorage {
 
   public async setRefreshToken(refreshToken: string): Promise<void> {
     this.refreshToken = refreshToken;
-    await AsyncStorage.setItem(nameof(this.token), refreshToken);
+    await AsyncStorage.setItem(nameof(this.refreshToken), refreshToken);
   }
 
   /**

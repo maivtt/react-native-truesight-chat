@@ -3,7 +3,7 @@ import { Field } from 'react3l-decorators';
 import type { ConversationConfiguration } from 'src/models/ConversationConfiguration';
 import type { ConversationType } from 'src/models/ConversationType';
 import type { GlobalUser } from 'src/models/GlobalUser';
-import type { ConversationParticipant } from 'src/models';
+import type { ConversationParticipant } from 'src/models/ConversationParticipant';
 
 export class Conversation extends Model {
   @Field(Number)

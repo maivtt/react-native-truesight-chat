@@ -43,6 +43,14 @@
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "types": [
+      "jest",
+      "node",
+      "react",
+      "react-native",
+      "react-native-css-module",
+      "react-native-svg-types"
+    ]
   }
 }
