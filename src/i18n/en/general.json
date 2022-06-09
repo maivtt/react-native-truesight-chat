@@ -22,10 +22,5 @@
   "general.action.retry": "",
   "general.action.download": "",
   "general.action.finish": "",
-  "general.action.send": "",
-  "lang.error.listEmpty": "",
-  "lang.error.listError": "",
-  "lang.error.listEnd": "",
-  "language.vietnamese": "",
-  "language.english": ""
+  "general.action.send": ""
 }

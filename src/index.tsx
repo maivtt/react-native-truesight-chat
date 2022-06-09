@@ -4,6 +4,10 @@ import type { Observable } from 'rxjs';
 
 export * from './models';
 
+export * from './components';
+
+export * from './types';
+
 interface TruesightChatOptions {
   listConversation: typeof TruesightChat['listConversation'];
 
@@ -30,7 +34,3 @@ class TruesightChat {
 }
 
 export default TruesightChat;
-
-export interface TruesightThemeExtension {
-  messageBackgroundColor?: string;
-}

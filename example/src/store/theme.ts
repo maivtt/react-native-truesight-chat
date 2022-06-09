@@ -1,7 +1,6 @@
 import { createThemeSlice } from 'react-native-redux-theming';
-import type { ThemeStyle } from 'src/types/Theme';
 
-export const themeSlice = createThemeSlice<ThemeStyle>({
+export const themeSlice = createThemeSlice({
   currentTheme: 'default',
   themes: {
     default: {

@@ -15,7 +15,7 @@ enableScreens();
 
 TruesightChat.config({
   listConversation: conversationRepository.list,
-  atomicStyles,
+  atomicStyles: atomicStyles,
 });
 
 export default function App(): ReactElement {

@@ -1,10 +1,7 @@
 import React from 'react';
 import type { PropsWithChildren, ReactElement } from 'react';
 import nameof from 'ts-nameof.macro';
-import { Text, View } from 'react-native';
-import TruesightChat from 'react-native-truesight-chat';
-
-const { atomicStyles } = TruesightChat;
+import { ConversationFlatList } from 'react-native-truesight-chat';
 
 export function ConversationListScreen(
   props: PropsWithChildren<ConversationListScreenProps>
@@ -13,9 +10,7 @@ export function ConversationListScreen(
 
   return (
     <>
-      <View>
-        <Text style={[atomicStyles.p4, atomicStyles.text]}>123</Text>
-      </View>
+      <ConversationFlatList />
     </>
   );
 }

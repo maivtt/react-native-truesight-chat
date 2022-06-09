@@ -152,16 +152,21 @@
     ]
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "axios": "^0.27.2",
     "i18next": "^21.8.9",
     "moment": "^2.29.3",
     "react-i18next": "^11.17.0",
     "react-native-atomic-styles": "^0.0.2",
+    "react-native-camera": "^4.2.1",
+    "react-native-redux-theming": "^0.1.7",
+    "react-redux": "^8.0.2",
     "react3l-advanced-filters": "^6.0.0",
     "react3l-axios-observable": "^6.0.0",
     "react3l-common": "^6.0.0",
     "react3l-decorators": "^6.0.0",
     "react3l-localization": "^6.0.0",
+    "redux": "^4.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.5"
   }
