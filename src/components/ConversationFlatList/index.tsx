@@ -10,17 +10,34 @@ import {
   FlatList,
   ListRenderItem,
   ListRenderItemInfo,
+  StyleProp,
   Text,
+  TextStyle,
+  TouchableOpacity,
   View,
+  ViewStyle,
 } from 'react-native';
 import ListLoading from '../atoms/ListLoading';
 import ListFooter from '../atoms/ListFooter';
 import atomicStyles from '../../styles';
+import Avatar from '../atoms/Avatar';
+import { getConversationName } from '../../helper/string-helper';
+import SvgIcon from '../atoms/SvgIcon/SvgIcon';
+import { conversationFlatListStyles } from './ConversationFlatList.styles';
 
 export function ConversationFlatList(
   props: PropsWithChildren<ConversationFlatListProps>
 ): ReactElement {
-  const { renderItem } = props;
+  const {
+    renderItem,
+    containerStyle,
+    contentContainerStyle,
+    avatarContainerStyle,
+    textLabelStyle,
+    textDescriptionStyle,
+    unreadComponent,
+    onPress,
+  } = props;
 
   const [list, , loading, refreshing, , handleLoadMore, handleRefresh] =
     useList<Conversation, ConversationFilter, SearchField.NAME>(
@@ -33,15 +50,91 @@ export function ConversationFlatList(
   const renderDefaultItem: ListRenderItem<Conversation> = React.useCallback(
     ({ item, index }: ListRenderItemInfo<Conversation>) => {
       return (
-        <View key={index}>
-          <View>{}</View>
-          <View>
-            <Text>{item?.latestContent}</Text>
+        <TouchableOpacity
+          key={index}
+          style={[atomicStyles.flexRowCenter, containerStyle]}
+          onPress={() => {
+            if (onPress) {
+              onPress(item);
+            }
+          }}
+        >
+          <View style={[avatarContainerStyle]}>
+            <Avatar radius={50} source={item?.avatar} />
           </View>
-        </View>
+          <View
+            style={[
+              atomicStyles.flex,
+              atomicStyles.mx4,
+              atomicStyles.py3,
+              atomicStyles.justifyContentBetween,
+              contentContainerStyle,
+            ]}
+          >
+            <Text
+              style={[
+                atomicStyles.h4,
+                atomicStyles.medium,
+                item?.countUnread &&
+                  item?.countUnread > 0 &&
+                  atomicStyles.medium,
+                textLabelStyle,
+              ]}
+              numberOfLines={1}
+            >
+              {getConversationName(item)}
+            </Text>
+            <View style={[atomicStyles.flexRowBetween]}>
+              <Text
+                style={[
+                  atomicStyles.h5,
+                  atomicStyles.light,
+                  atomicStyles.flex,
+                  textDescriptionStyle,
+                ]}
+                numberOfLines={1}
+              >
+                {item?.latestContent}
+              </Text>
+              {item?.latestGlobalUser && (
+                <View style={[atomicStyles.justifyContentEnd]}>
+                  {unreadComponent ?? (
+                    <>
+                      {item?.countUnread && item.countUnread > 0 ? (
+                        <View style={[conversationFlatListStyles.unread]}>
+                          <Text
+                            style={[
+                              atomicStyles.h6,
+                              atomicStyles.medium,
+                              conversationFlatListStyles.textUnread,
+                            ]}
+                          >
+                            {item?.countUnread > 99 ? '99+' : item?.countUnread}
+                          </Text>
+                        </View>
+                      ) : (
+                        <SvgIcon
+                          component={require('../../../assets/icons/check.svg')}
+                        />
+                      )}
+                    </>
+                  )}
+                </View>
+              )}
+            </View>
+          </View>
+        </TouchableOpacity>
       );
     },
-    []
+    [
+      avatarContainerStyle,
+      containerStyle,
+      contentContainerStyle,
+      onPress,
+      textDescriptionStyle,
+      textLabelStyle,
+      unreadComponent,
+    ]
   );
 
   return (
@@ -66,6 +159,22 @@ export function ConversationFlatList(
 
 export interface ConversationFlatListProps {
   renderItem?: ListRenderItem<Conversation>;
+
+  containerStyle?: StyleProp<ViewStyle>;
+
+  contentContainerStyle?: StyleProp<ViewStyle>;
+
+  avatarContainerStyle?: StyleProp<ViewStyle>;
+
+  headerContainerStyle?: StyleProp<ViewStyle>;
+
+  textLabelStyle?: StyleProp<TextStyle>;
+
+  textDescriptionStyle?: StyleProp<TextStyle>;
+
+  unreadComponent?: ReactElement;
+
+  onPress?: (conversation: Conversation) => void;
 }
 
 ConversationFlatList.defaultProps = {
