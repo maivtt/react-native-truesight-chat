@@ -6,10 +6,8 @@ import { SCREEN_HEIGHT } from '../../../../example/src/config/consts';
 import { ActivityIndicator, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useThemeValue } from 'react-native-redux-theming';
-import TruesightChat from 'react-native-truesight-chat';
 import { Lang } from '../../../lang';
-
-const { atomicStyles } = TruesightChat;
+import atomicStyles from '../../../styles';
 
 export function ListLoading(
   props: PropsWithChildren<ListLoadingProps>

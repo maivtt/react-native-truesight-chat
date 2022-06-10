@@ -10,6 +10,9 @@ import atomicStyles from './styles';
 import { portalRepository } from './repositories/portal-repository';
 import { globalState } from './app';
 import RootNavigator from './navigators/RootNavigator';
+import store from './store';
+import { Provider } from 'react-redux';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 enableScreens();
 
@@ -29,7 +32,13 @@ export default function App(): ReactElement {
     });
   }, []);
 
-  return <RootNavigator />;
+  return (
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <RootNavigator />
+      </SafeAreaProvider>
+    </Provider>
+  );
 }
 
 AppRegistry.registerComponent(appName, () => App);

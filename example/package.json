@@ -28,6 +28,7 @@
     "react-native-atomic-styles": "^0.0.2",
     "react-native-device-info": "^9.0.2",
     "react-native-document-picker": "^8.1.0",
+    "react-native-flipper": "^0.127.0",
     "react-native-gesture-handler": "^2.4.2",
     "react-native-image-crop-picker": "^0.37.3",
     "react-native-image-helper": "^0.0.3",
@@ -45,7 +46,10 @@
     "react3l-decorators": "^6.0.0",
     "react3l-localization": "^6.0.0",
     "reactn": "^2.2.7",
+    "redux": "^4.2.0",
+    "redux-flipper": "^2.0.1",
     "reflect-metadata": "^0.1.13",
+    "rn-redux-middleware-flipper": "^0.1.0",
     "rxjs": "^7.5.5",
     "ts-nameof.macro": "^4.2.2"
   },

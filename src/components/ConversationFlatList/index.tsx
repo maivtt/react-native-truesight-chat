@@ -2,10 +2,7 @@ import React from 'react';
 import type { PropsWithChildren, ReactElement } from 'react';
 import nameof from 'ts-nameof.macro';
 import { useList } from '../../hooks/use-list';
-import TruesightChat, {
-  Conversation,
-  ConversationFilter,
-} from 'react-native-truesight-chat';
+import { Conversation, ConversationFilter } from 'react-native-truesight-chat';
 import { SearchField } from '../../types/Search';
 import { conversationRepository } from '../../../example/src/repositories/conversation-repository';
 import { END_REACHED_THRESHOLD } from '../../../example/src/config/consts';
@@ -18,8 +15,7 @@ import {
 } from 'react-native';
 import ListLoading from '../atoms/ListLoading';
 import ListFooter from '../atoms/ListFooter';
-
-const { atomicStyles } = TruesightChat;
+import atomicStyles from '../../styles';
 
 export function ConversationFlatList(
   props: PropsWithChildren<ConversationFlatListProps>
