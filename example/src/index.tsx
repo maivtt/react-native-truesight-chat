@@ -13,11 +13,15 @@ import RootNavigator from './navigators/RootNavigator';
 import store from './store';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { conversationMessageRepository } from './repositories/conversation-message-repository';
 
 enableScreens();
 
 TruesightChat.config({
   listConversation: conversationRepository.list,
+  countConversation: conversationRepository.count,
+  listConversationMessage: conversationMessageRepository.list,
+  countConversationMessage: conversationMessageRepository.count,
   atomicStyles: atomicStyles,
 });
 

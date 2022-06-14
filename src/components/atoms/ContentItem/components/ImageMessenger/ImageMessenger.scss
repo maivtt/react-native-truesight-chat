@@ -1,0 +1,86 @@
+/**
+ * Styles for Component.tsx
+ * @created 2022-05-24 09:11:00
+ * @author maivtt14 <vungoc2901@gmail.com>
+ */
+//Content
+.width {
+  max-width: 70%;
+  padding: 8px 16px;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+// Images
+.image {
+  height: 150px;
+  width: 150px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: #d4d2d2;
+}
+
+.imageComponent {
+  height: 100px;
+  width: 100px;
+  margin: 1px;
+  z-index: 0;
+  background-color: #d4d2d2;
+}
+
+.borderBottomRight {
+  border-bottom-right-radius: 8px;
+}
+
+.borderBottomLeft {
+  border-bottom-left-radius: 8px;
+}
+
+.borderTopRight {
+  border-top-right-radius: 8px;
+}
+
+.borderTopLeft {
+  border-top-left-radius: 8px;
+}
+
+.moreThan4 {
+  height: 100px;
+  width: 100px;
+  margin: 1px;
+  opacity: 0.4;
+  position: absolute;
+  z-index: 10;
+}
+
+.countContainer {
+  height: 100px;
+  width: 100px;
+  margin: 1px;
+  position: absolute;
+  z-index: 11;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(90, 90, 90, 0.5);
+}
+
+.dash {
+  border-bottom-color: #FFF;
+  border-bottom-width: 1px;
+  padding: 4px 0;
+  align-items: flex-end;
+  margin-bottom: 4px;
+}
+
+.subReTextColor {
+  color: #CAC5C4;
+}
+
+//Reply
+.w150 {
+  width: 150px;
+}
+
+.w200 {
+  width: 200px;
+}

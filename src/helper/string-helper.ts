@@ -60,3 +60,11 @@ export function getParticipantConversationName(
   }
   return '';
 }
+
+export function getDate(date: string) {
+  if (date) {
+    let currentDate = new Date(date);
+    return currentDate.setUTCHours(0, 0, 0, 0);
+  }
+  return new Date();
+}

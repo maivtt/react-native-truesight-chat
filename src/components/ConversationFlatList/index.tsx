@@ -2,9 +2,11 @@ import React from 'react';
 import type { PropsWithChildren, ReactElement } from 'react';
 import nameof from 'ts-nameof.macro';
 import { useList } from '../../hooks/use-list';
-import { Conversation, ConversationFilter } from 'react-native-truesight-chat';
+import TruesightChat, {
+  Conversation,
+  ConversationFilter,
+} from 'react-native-truesight-chat';
 import { SearchField } from '../../types/Search';
-import { conversationRepository } from '../../../example/src/repositories/conversation-repository';
 import { END_REACHED_THRESHOLD } from '../../../example/src/config/consts';
 import {
   FlatList,
@@ -42,8 +44,8 @@ export function ConversationFlatList(
   const [list, , loading, refreshing, , handleLoadMore, handleRefresh] =
     useList<Conversation, ConversationFilter, SearchField.NAME>(
       ConversationFilter,
-      conversationRepository.list,
-      conversationRepository.count,
+      TruesightChat.listConversation,
+      TruesightChat.countConversation,
       SearchField.NAME
     );
 

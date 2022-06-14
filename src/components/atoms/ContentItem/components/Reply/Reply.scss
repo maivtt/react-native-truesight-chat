@@ -1,0 +1,38 @@
+/**
+ * Styles for Component.tsx
+ * @created 2022-05-24 09:33:33
+ * @author maivtt14 <vungoc2901@gmail.com>
+ */
+// Images
+.image {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  background-color: #d4d2d2;
+}
+
+.imageComponent {
+  height: 30px;
+  width: 30px;
+  border-radius: 2px;
+  margin-right: 8px;
+  z-index: 0;
+  background-color: #d4d2d2;
+}
+
+.dash {
+  border-left-color: #FFF;
+  border-left-width: 2px;
+  padding-left: 8px;
+  margin-bottom: 8px;
+}
+
+.subReTextColor {
+  color: #CAC5C4;
+}
+
+//Files
+.file {
+  margin-left: -6px;
+  margin-right: 2px;
+}

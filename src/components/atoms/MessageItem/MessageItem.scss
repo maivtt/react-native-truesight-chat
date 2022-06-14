@@ -1,0 +1,42 @@
+/**
+ * Styles for Component.tsx
+ * @created 2022-03-03 19:28:46
+ * @author maivtt14 <vungoc2901@gmail.com>
+ */
+.container {
+  //
+}
+
+.avatar {
+  height: 35px;
+  width: 35px;
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+.borderRadius {
+  border-radius: 30px;
+}
+
+.color {
+  background-color: #3B3A39;
+}
+
+.reply {
+  position: absolute;
+  top: 16px;
+  flex: 1;
+  z-index: -1;
+}
+
+.left {
+  left: 45px;
+}
+
+.right {
+  right: 0;
+}
+
+.top {
+  margin-top: 40px;
+}
