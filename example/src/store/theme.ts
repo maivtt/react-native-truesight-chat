@@ -14,7 +14,10 @@ export const themeSlice = createThemeSlice<TruesightThemeExtension>({
       lightColor: '#FFFFFF',
       darkColor: '#161616',
       mutedColor: '#FFFFFF',
-      messageBackgroundColor: '#000',
+      messageBackgroundColor: '#E0EBFF',
+      messageBackgroundOtherColor: '#e6e6e5',
+      messageTextPrimaryColor: '#3B3A39',
+      messageTextSecondaryColor: '#9D9D9D',
     },
   },
 });

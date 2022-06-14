@@ -2,11 +2,15 @@ import type { FC, PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
 import nameof from 'ts-nameof.macro';
 import styles from './FileMessenger.scss';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { useThemeValue } from 'react-native-redux-theming';
 import atomicStyles from '../../../../../styles';
-import type { ConversationAttachment } from 'react-native-truesight-chat';
+import type {
+  ConversationAttachment,
+  TruesightThemeExtension,
+} from 'react-native-truesight-chat';
 import FileIcon from '../../../../../icons/FileIcon';
+import TextLib from '../../../TextLib';
 
 /**
  * File: FileMessenger.tsx
@@ -19,7 +23,12 @@ const FileMessenger: FC<PropsWithChildren<FileMessengerProps>> = (
 ): ReactElement => {
   const { conversationAttachments, onPress, onLongPress, reply, isOther } =
     props;
-  const primaryColor = useThemeValue('primaryColor');
+  const messageBackgroundColor = useThemeValue<TruesightThemeExtension>(
+    'messageBackgroundColor'
+  );
+  const messageBackgroundOtherColor = useThemeValue<TruesightThemeExtension>(
+    'messageBackgroundOtherColor'
+  );
 
   return (
     <>
@@ -27,7 +36,9 @@ const FileMessenger: FC<PropsWithChildren<FileMessengerProps>> = (
         style={[
           styles.width,
           {
-            backgroundColor: isOther ? '#e6e6e5' : primaryColor,
+            backgroundColor: isOther
+              ? messageBackgroundOtherColor
+              : messageBackgroundColor,
           },
         ]}
         onPress={onPress}
@@ -39,9 +50,9 @@ const FileMessenger: FC<PropsWithChildren<FileMessengerProps>> = (
             <View style={styles.file}>
               <FileIcon size={30} color={'#000'} />
             </View>
-            <Text style={[atomicStyles.pl2, atomicStyles.textUnderline]}>
+            <TextLib style={[atomicStyles.pl2, styles.textUnderline]}>
               {conversationAttachments && conversationAttachments[0]?.name}
-            </Text>
+            </TextLib>
           </View>
         </>
       </TouchableOpacity>

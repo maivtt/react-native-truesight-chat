@@ -3,7 +3,7 @@ import React from 'react';
 import nameof from 'ts-nameof.macro';
 import styles from './ContentItem.scss';
 import type { StyleProp, ViewStyle } from 'react-native';
-import { Pressable, View, Text } from 'react-native';
+import { Pressable, View } from 'react-native';
 import type { ConversationAttachment } from 'src/models/ConversationAttachment';
 import ImageView from 'react-native-image-viewing';
 import { useBoolean } from 'react3l-common';
@@ -14,6 +14,8 @@ import { DocumentType } from '../../../types/DocumentType';
 import FileMessenger from './components/FileMessenger/FileMessenger';
 import Reply from './components/Reply/Reply';
 import { checkFile } from '../../../helper/file-helper';
+import type { TruesightThemeExtension } from 'react-native-truesight-chat';
+import TextLib from '../TextLib';
 
 /**
  * File: ContentItem.tsx
@@ -28,6 +30,13 @@ const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
     props;
   const [show, handleShow] = useBoolean(false);
   const primaryColor = useThemeValue('primaryColor');
+
+  const messageBackgroundColor = useThemeValue<TruesightThemeExtension>(
+    'messageBackgroundColor'
+  );
+  const messageBackgroundOtherColor = useThemeValue<TruesightThemeExtension>(
+    'messageBackgroundOtherColor'
+  );
 
   return (
     <>
@@ -67,7 +76,9 @@ const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
                   onPress={handleShow}
                   style={[
                     {
-                      backgroundColor: isOther ? '#e6e6e5' : primaryColor,
+                      backgroundColor: isOther
+                        ? (messageBackgroundOtherColor as string)
+                        : (messageBackgroundColor as string),
                     },
                   ]}
                 />
@@ -81,21 +92,15 @@ const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
             styles.width,
 
             {
-              backgroundColor: isOther ? '#e6e6e5' : primaryColor,
+              backgroundColor: isOther
+                ? (messageBackgroundOtherColor as string)
+                : (messageBackgroundColor as string),
             },
           ]}
           onPress={onPress}
         >
           <Reply conversationMessage={conversationMessage} color={'#3B3A39'} />
-          <Text
-            style={[
-              {
-                color: '#3B3A39',
-              },
-            ]}
-          >
-            {conversationMessage?.content}
-          </Text>
+          <TextLib>{conversationMessage?.content}</TextLib>
         </Pressable>
       )}
 

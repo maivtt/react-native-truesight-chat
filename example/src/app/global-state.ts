@@ -15,21 +15,6 @@ export class GlobalState {
     return React.getGlobal<GlobalState>().language;
   }
 
-  public get timeout(): Date | undefined {
-    return React.getGlobal<GlobalState>().timeout;
-  }
-
-  /**
-   * Update timeout
-   *
-   * @param timeout {Date}
-   */
-  public async setTimeout(timeout: Date | undefined) {
-    await React.setGlobal<GlobalState>({
-      timeout,
-    });
-  }
-
   public get token(): string {
     return React.getGlobal<GlobalState>().token;
   }

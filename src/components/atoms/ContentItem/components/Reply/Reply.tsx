@@ -9,6 +9,9 @@ import type { ConversationMessage } from 'src/models/ConversationMessage';
 import FileIcon from '../../../../../icons/FileIcon';
 import { checkFile } from '../../../../../helper/file-helper';
 import { DocumentType } from '../../../../../types/DocumentType';
+import TextLib from '../../../TextLib';
+
+const REPLY_FONT_SIZE = 12;
 
 /**
  * File: Reply.tsx
@@ -23,11 +26,17 @@ const Reply: FC<PropsWithChildren<ReplyProps>> = (
 
   const content = (
     <>
-      <Text
+      <TextLib
         numberOfLines={1}
-        style={[styles.subReTextColor, atomicStyles.semibold, { color: color }]}
-      >{`${conversationMessage?.reply?.globalUser?.displayName}`}</Text>
-      <Text numberOfLines={3}>{conversationMessage?.reply?.content}</Text>
+        style={[
+          styles.subReTextColor,
+          atomicStyles.semibold,
+          { color: color, fontSize: REPLY_FONT_SIZE },
+        ]}
+      >{`${conversationMessage?.reply?.globalUser?.displayName}`}</TextLib>
+      <TextLib numberOfLines={3} style={{ fontSize: REPLY_FONT_SIZE }}>
+        {conversationMessage?.reply?.content}
+      </TextLib>
     </>
   );
 
@@ -60,16 +69,16 @@ const Reply: FC<PropsWithChildren<ReplyProps>> = (
               style={[
                 styles.subReTextColor,
                 atomicStyles.semibold,
-                { color: color, fontSize: 10 },
+                { color: color, fontSize: REPLY_FONT_SIZE },
               ]}
             >{`${conversationMessage?.reply?.globalUser?.displayName}`}</Text>
-            <Text
+            <TextLib
               numberOfLines={3}
               style={[
                 checkFile(
                   conversationMessage?.reply?.conversationAttachments[0]?.url
                 ) !== DocumentType.IMAGE && atomicStyles.textUnderline,
-                { fontSize: 10 },
+                { fontSize: REPLY_FONT_SIZE },
               ]}
             >
               {checkFile(
@@ -77,7 +86,7 @@ const Reply: FC<PropsWithChildren<ReplyProps>> = (
               ) !== DocumentType.IMAGE
                 ? conversationMessage?.reply?.conversationAttachments[0]?.name
                 : 'Photo'}
-            </Text>
+            </TextLib>
           </View>
         </View>
       );
@@ -88,7 +97,7 @@ const Reply: FC<PropsWithChildren<ReplyProps>> = (
   return (
     <>
       {conversationMessage?.replyId && (
-        <View style={[styles.dash, { borderLeftColor: '#3B3A39' }, style]}>
+        <View style={[styles.dash, style]}>
           {conversationMessage?.replyId && conversationMessage?.reply?.content
             ? content
             : replyComponent}

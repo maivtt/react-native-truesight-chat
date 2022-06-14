@@ -10,7 +10,6 @@ import {
   FlatList,
   ListRenderItem,
   ListRenderItemInfo,
-  Text,
   View,
 } from 'react-native';
 import { LoadingStatus, useList } from '../../hooks/use-list';
@@ -18,58 +17,81 @@ import { END_REACHED_THRESHOLD } from '../../../example/src/config/consts';
 import ListFooter from '../atoms/ListFooter';
 import TruesightChat, {
   ConversationMessageFilter,
+  TruesightThemeExtension,
 } from 'react-native-truesight-chat';
 import { SearchField, SearchType } from '../../types/Search';
 import MessageItem from '../atoms/MessageItem/MessageItem';
 import moment from 'moment';
 import { getDate } from '../../helper/string-helper';
+import atomicStyles from '../../styles';
+import TextLib from '../atoms/TextLib';
+import { useThemeValue } from 'react-native-redux-theming';
 
 export function ConversationMessageFlatList(
   props: PropsWithChildren<ConversationMessageFlatListProps>
 ): ReactElement {
-  const { conversation } = props;
+  const { conversation, globalUser, onSwipe } = props;
+  const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
+    'messageTextSecondaryColor'
+  );
 
-  const [list, total, loading, refreshing, , handleLoadMore, handleRefresh] =
-    useList<ConversationMessage, ConversationMessageFilter, SearchField.NAME>(
-      ConversationMessageFilter,
-      TruesightChat.listConversationMessage,
-      TruesightChat.countConversationMessage,
-      SearchField.NAME,
-      SearchType.CONTAIN,
-      {
-        ...new ConversationMessageFilter(),
-        conversationId: {
-          equal: conversation.id,
-        },
-      }
-    );
+  const [list, total, loading, refreshing, , handleLoadMore] = useList<
+    ConversationMessage,
+    ConversationMessageFilter,
+    SearchField.NAME
+  >(
+    ConversationMessageFilter,
+    TruesightChat.listConversationMessage,
+    TruesightChat.countConversationMessage,
+    SearchField.NAME,
+    SearchType.CONTAIN,
+    {
+      ...new ConversationMessageFilter(),
+      conversationId: {
+        equal: conversation.id,
+      },
+    }
+  );
 
   const renderItem: ListRenderItem<ConversationMessage> = React.useCallback(
     ({ item, index }: ListRenderItemInfo<ConversationMessage>) => {
       return (
         <MessageItem
-          globalUser={{ id: 1 }}
+          globalUser={globalUser ?? {}}
           conversationMessage={item}
           key={index}
           consecutive={
             index !== 0 && list[index - 1]?.globalUserId === item?.globalUserId
           }
-          //onSwipe={onSwipe}
+          onSwipe={onSwipe}
           header={
             index === total ||
             moment(getDate(item?.createdAt)).diff(
               moment(getDate(list[index + 1]?.createdAt)),
               'days'
             ) !== 0 ? (
-              <View style={[]}>
-                <Text>{moment(item?.createdAt).calendar()}</Text>
+              <View
+                style={[
+                  atomicStyles.pb3,
+                  atomicStyles.pt4,
+                  atomicStyles.flexRowCenter,
+                ]}
+              >
+                <TextLib
+                  style={[
+                    atomicStyles.sub3,
+                    { color: messageTextSecondaryColor },
+                  ]}
+                >
+                  {moment(item?.createdAt).calendar()}
+                </TextLib>
               </View>
             ) : undefined
           }
         />
       );
     },
-    [list, total]
+    [globalUser, list, messageTextSecondaryColor, onSwipe, total]
   );
 
   return (
@@ -84,7 +106,6 @@ export function ConversationMessageFlatList(
         inverted={!(loading === LoadingStatus.FAIL)}
         scrollEventThrottle={10}
         refreshing={refreshing}
-        onRefresh={handleRefresh}
         onEndReachedThreshold={END_REACHED_THRESHOLD}
         onEndReached={handleLoadMore}
         ListHeaderComponent={<></>}
@@ -103,6 +124,10 @@ export function ConversationMessageFlatList(
 
 export interface ConversationMessageFlatListProps {
   conversation: Conversation;
+
+  globalUser?: any;
+
+  onSwipe?: (conversationMessage: ConversationMessage) => void;
 }
 
 ConversationMessageFlatList.defaultProps = {
