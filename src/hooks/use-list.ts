@@ -308,9 +308,7 @@ export function useList<
       arrayList.length < total! &&
       arrayList.length >= (take ?? DEFAULT_TAKE) &&
       total! > 0 &&
-      loading !== LoadingStatus.PROGRESSING &&
-      getList &&
-      getCount
+      loading !== LoadingStatus.PROGRESSING
     ) {
       dispatch({
         type: Action.loadingProcess,
@@ -320,7 +318,7 @@ export function useList<
         take: take,
       });
     }
-  }, [arrayList.length, getCount, getList, loading, take, total]);
+  }, [arrayList.length, loading, take, total]);
 
   const handleSearch = React.useCallback(
     (searchValue: string) => {

@@ -35,7 +35,6 @@
     "experimentalDecorators": true,
     "isolatedModules": true,
     "listEmittedFiles": true,
-    "noEmit": true,
     "outDir": "dist",
     "removeComments": false,
     "skipDefaultLibCheck": true,
