@@ -14,15 +14,17 @@ import store from './store';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { conversationMessageRepository } from './repositories/conversation-message-repository';
+import { server } from './config/server';
 
 enableScreens();
 
 TruesightChat.config({
+  serverUrl: server.serverUrl,
+  atomicStyles: atomicStyles,
   listConversation: conversationRepository.list,
   countConversation: conversationRepository.count,
   listConversationMessage: conversationMessageRepository.list,
   countConversationMessage: conversationMessageRepository.count,
-  atomicStyles: atomicStyles,
 });
 
 export default function App(): ReactElement {

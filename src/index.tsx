@@ -23,6 +23,8 @@ interface TruesightChatOptions {
   countConversationMessage: typeof TruesightChat['countConversationMessage'];
 
   atomicStyles?: typeof TruesightChat['atomicStyles'];
+
+  serverUrl?: typeof TruesightChat['serverUrl'];
 }
 
 class TruesightChat {
@@ -43,6 +45,8 @@ class TruesightChat {
   ) => Observable<number>;
 
   public static atomicStyles: typeof atomicStyles = atomicStyles;
+
+  public static serverUrl: string;
 
   public static config(options: TruesightChatOptions) {
     if (options.listConversation) {

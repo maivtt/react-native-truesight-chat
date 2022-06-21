@@ -10,7 +10,9 @@ import {
   FlatList,
   ListRenderItem,
   ListRenderItemInfo,
+  StyleProp,
   View,
+  ViewStyle,
 } from 'react-native';
 import { LoadingStatus, useList } from '../../hooks/use-list';
 import { END_REACHED_THRESHOLD } from '../../../example/src/config/consts';
@@ -30,7 +32,7 @@ import { useThemeValue } from 'react-native-redux-theming';
 export function ConversationMessageFlatList(
   props: PropsWithChildren<ConversationMessageFlatListProps>
 ): ReactElement {
-  const { conversation, globalUser, onSwipe } = props;
+  const { conversation, globalUser, onSwipe, style } = props;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
     'messageTextSecondaryColor'
   );
@@ -117,6 +119,7 @@ export function ConversationMessageFlatList(
             check={total !== list?.length}
           />
         }
+        style={style}
       />
     </>
   );
@@ -128,6 +131,8 @@ export interface ConversationMessageFlatListProps {
   globalUser?: any;
 
   onSwipe?: (conversationMessage: ConversationMessage) => void;
+
+  style?: StyleProp<ViewStyle>;
 }
 
 ConversationMessageFlatList.defaultProps = {

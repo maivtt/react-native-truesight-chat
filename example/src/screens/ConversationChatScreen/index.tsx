@@ -17,6 +17,7 @@ export function ConversationChatScreen(
       <ConversationMessageFlatList
         conversation={conversation}
         globalUser={GLOBAL_USER}
+        style={[{ margin: 16 }]}
       />
     </>
   );

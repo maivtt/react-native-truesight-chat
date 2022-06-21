@@ -1,7 +1,7 @@
 import type { FC, PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
 import nameof from 'ts-nameof.macro';
-import { Image, View, Text } from 'react-native';
+import { Image, View } from 'react-native';
 import type { ConversationMessage } from 'src/models/ConversationMessage';
 import styles from './MessageItem.scss';
 import { useBoolean } from 'react3l-common';
@@ -17,9 +17,12 @@ import {
   State,
 } from 'react-native-gesture-handler';
 import atomicStyles from '../../../styles';
-import { server } from '../../../../example/src/config/server';
 import ContentItem from '../ContentItem/ContentItem';
 import SvgIcon from '../SvgIcon/SvgIcon';
+import TextLib from '../TextLib';
+import { useThemeValue } from 'react-native-redux-theming';
+import type { TruesightThemeExtension } from 'react-native-truesight-chat';
+import TruesightChat from 'react-native-truesight-chat';
 
 /**
  * File: MessageItem.tsx
@@ -32,6 +35,9 @@ const MessageItem: FC<PropsWithChildren<MessageItemProps>> = (
 ): ReactElement => {
   const { conversationMessage, consecutive, onSwipe, header, globalUser } =
     props;
+  const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
+    'messageTextSecondaryColor'
+  );
 
   const [show, handleShow] = useBoolean(false);
 
@@ -91,17 +97,6 @@ const MessageItem: FC<PropsWithChildren<MessageItemProps>> = (
       >
         <Animated.View style={[uas]}>
           <>
-            {show && !header && (
-              <Text
-                style={[
-                  atomicStyles.textCenter,
-                  atomicStyles.mt4,
-                  atomicStyles.mb2,
-                ]}
-              >
-                {moment(conversationMessage?.createdAt).format('LLL')}
-              </Text>
-            )}
             {conversationMessage?.globalUserId === globalUser?.id ? (
               <View style={[styles.container, atomicStyles.flexRowEnd]}>
                 <ContentItem
@@ -134,7 +129,7 @@ const MessageItem: FC<PropsWithChildren<MessageItemProps>> = (
                         conversationMessage?.globalUser?.avatar
                           ? {
                               uri:
-                                server.serverUrl +
+                                TruesightChat.serverUrl +
                                 conversationMessage.globalUser.avatar,
                             }
                           : require('../../../../assets/images/default-avatar.png')
@@ -158,6 +153,19 @@ const MessageItem: FC<PropsWithChildren<MessageItemProps>> = (
           </>
         </Animated.View>
       </FlingGestureHandler>
+      {show && !header && (
+        <TextLib
+          style={[
+            atomicStyles.textCenter,
+            atomicStyles.mt4,
+            atomicStyles.mb2,
+            atomicStyles.sub3,
+            { color: messageTextSecondaryColor },
+          ]}
+        >
+          {moment(conversationMessage?.createdAt).format('LLL')}
+        </TextLib>
+      )}
       {header}
     </>
   );

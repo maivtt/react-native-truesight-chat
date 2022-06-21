@@ -31,14 +31,18 @@ export function ConversationFlatList(
   props: PropsWithChildren<ConversationFlatListProps>
 ): ReactElement {
   const {
+    navigation,
+    target,
     renderItem,
+    style,
     containerStyle,
     contentContainerStyle,
     avatarContainerStyle,
     textLabelStyle,
     textDescriptionStyle,
     unreadComponent,
-    onPress,
+    avatar,
+    avatarRadius,
   } = props;
 
   const [list, , loading, refreshing, , handleLoadMore, handleRefresh] =
@@ -56,18 +60,23 @@ export function ConversationFlatList(
           key={index}
           style={[atomicStyles.flexRowCenter, containerStyle]}
           onPress={() => {
-            if (onPress) {
-              onPress(item);
+            if (target) {
+              navigation.navigate(target!, {
+                conversation: item,
+              });
             }
           }}
         >
-          <View style={[avatarContainerStyle]}>
-            <Avatar radius={50} source={item?.avatar} />
-          </View>
+          {avatar && (
+            <View style={[avatarContainerStyle]}>
+              <Avatar radius={avatarRadius ?? 50} source={item?.avatar} />
+            </View>
+          )}
+
           <View
             style={[
               atomicStyles.flex,
-              atomicStyles.mx4,
+              atomicStyles.ml4,
               atomicStyles.py3,
               atomicStyles.justifyContentBetween,
               contentContainerStyle,
@@ -129,10 +138,13 @@ export function ConversationFlatList(
       );
     },
     [
+      avatar,
       avatarContainerStyle,
+      avatarRadius,
       containerStyle,
       contentContainerStyle,
-      onPress,
+      navigation,
+      target,
       textDescriptionStyle,
       textLabelStyle,
       unreadComponent,
@@ -142,6 +154,7 @@ export function ConversationFlatList(
   return (
     <>
       <FlatList
+        style={style}
         renderItem={renderItem ?? renderDefaultItem}
         data={list}
         showsHorizontalScrollIndicator={false}
@@ -162,6 +175,8 @@ export function ConversationFlatList(
 export interface ConversationFlatListProps {
   renderItem?: ListRenderItem<Conversation>;
 
+  style?: StyleProp<ViewStyle>;
+
   containerStyle?: StyleProp<ViewStyle>;
 
   contentContainerStyle?: StyleProp<ViewStyle>;
@@ -176,11 +191,17 @@ export interface ConversationFlatListProps {
 
   unreadComponent?: ReactElement;
 
-  onPress?: (conversation: Conversation) => void;
+  navigation: any;
+
+  target: string;
+
+  avatar?: boolean;
+
+  avatarRadius?: number;
 }
 
 ConversationFlatList.defaultProps = {
-  //
+  avatar: true,
 };
 
 ConversationFlatList.displayName = nameof(ConversationFlatList);
