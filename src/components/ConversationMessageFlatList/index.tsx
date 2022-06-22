@@ -15,7 +15,6 @@ import {
   ViewStyle,
 } from 'react-native';
 import { LoadingStatus, useList } from '../../hooks/use-list';
-import { END_REACHED_THRESHOLD } from '../../../example/src/config/consts';
 import ListFooter from '../atoms/ListFooter';
 import TruesightChat, {
   ConversationMessageFilter,
@@ -109,7 +108,7 @@ export function ConversationMessageFlatList(
         inverted={!(loading === LoadingStatus.FAIL)}
         scrollEventThrottle={10}
         refreshing={refreshing}
-        onEndReachedThreshold={END_REACHED_THRESHOLD}
+        onEndReachedThreshold={0.5}
         onEndReached={handleLoadMore}
         ListHeaderComponent={<></>}
         ListHeaderComponentStyle={[]}

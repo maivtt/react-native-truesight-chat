@@ -7,7 +7,6 @@ import TruesightChat, {
   ConversationFilter,
 } from 'react-native-truesight-chat';
 import { SearchField } from '../../types/Search';
-import { END_REACHED_THRESHOLD } from '../../../example/src/config/consts';
 import {
   FlatList,
   ListRenderItem,
@@ -160,7 +159,7 @@ export function ConversationFlatList(
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item: Conversation) => item.id!.toString()}
         refreshing={refreshing}
-        onEndReachedThreshold={END_REACHED_THRESHOLD}
+        onEndReachedThreshold={0.5}
         onEndReached={handleLoadMore}
         onRefresh={handleRefresh}
         ListEmptyComponent={<ListLoading loading={loading} />}

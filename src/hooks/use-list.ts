@@ -3,7 +3,6 @@ import React from 'react';
 import type { Observable, Subscription } from 'rxjs';
 import { forkJoin } from 'rxjs';
 import type { Model, ModelFilter } from 'react3l-common';
-import { showError } from '../../example/src/helpers/toast-helper';
 
 const DEFAULT_TAKE = 10;
 
@@ -282,7 +281,7 @@ export function useList<
         dispatch({
           type: Action.loadingFail,
         });
-        showError('Server error!');
+        console.log('Server error!');
       },
     });
     dispatch({

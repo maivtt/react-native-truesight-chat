@@ -2,12 +2,13 @@ import React from 'react';
 import type { PropsWithChildren, ReactElement } from 'react';
 import nameof from 'ts-nameof.macro';
 import { LoadingStatus } from '../../../hooks/use-list';
-import { SCREEN_HEIGHT } from '../../../../example/src/config/consts';
-import { ActivityIndicator, Text, View } from 'react-native';
+import { ActivityIndicator, Dimensions, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useThemeValue } from 'react-native-redux-theming';
 import { Lang } from '../../../lang';
 import atomicStyles from '../../../styles';
+
+const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
 
 export function ListLoading(
   props: PropsWithChildren<ListLoadingProps>

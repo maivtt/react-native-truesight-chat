@@ -7,7 +7,6 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import type { ConversationMessage } from 'src/models/ConversationMessage';
 import atomicStyles from '../../../../../styles';
 import Reply from '../Reply/Reply';
-import { borderStyles } from '../../../../../../example/src/styles/themes';
 
 /**
  * File: ImageMessenger.tsx
@@ -24,8 +23,9 @@ const ImageMessenger: FC<PropsWithChildren<ImageMessengerProps>> = (
     <View
       style={[
         atomicStyles.mt2,
-        borderStyles.rad8,
         conversationMessage?.replyId && atomicStyles.pt2,
+        // eslint-disable-next-line react-native/no-inline-styles
+        { borderRadius: 8 },
         style,
       ]}
     >
