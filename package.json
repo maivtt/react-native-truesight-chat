@@ -1,6 +1,6 @@
 {
   "name": "react-native-truesight-chat",
-  "version": "0.1.0",
+  "version": "0.1.0-rc.1",
   "description": "react native truesight app chat",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -151,13 +151,15 @@
       [
         "commonjs",
         {
-          "configFile": "./babel.config.js"
+          "configFile": "./babel.config.js",
+          "copyFlow": true
         }
       ],
       [
         "module",
         {
-          "configFile": "./babel.config.js"
+          "configFile": "./babel.config.js",
+          "copyFlow": true
         }
       ],
       [
