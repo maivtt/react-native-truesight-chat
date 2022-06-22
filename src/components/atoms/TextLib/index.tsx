@@ -10,6 +10,7 @@ export function TextLib(props: PropsWithChildren<TextLibProps>): ReactElement {
   const { children, style, ...resProps } = props;
 
   const messageTextPrimaryColor = useThemeValue<TruesightThemeExtension>(
+    // @ts-ignore
     'messageTextPrimaryColor'
   );
 

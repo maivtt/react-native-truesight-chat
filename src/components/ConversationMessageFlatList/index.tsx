@@ -34,6 +34,7 @@ export function ConversationMessageFlatList(
 ): ReactElement {
   const { conversation, globalUser, onSwipe, style } = props;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
+    // @ts-ignore
     'messageTextSecondaryColor'
   );
 

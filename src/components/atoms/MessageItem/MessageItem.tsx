@@ -36,6 +36,7 @@ const MessageItem: FC<PropsWithChildren<MessageItemProps>> = (
   const { conversationMessage, consecutive, onSwipe, header, globalUser } =
     props;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
+    // @ts-ignore
     'messageTextSecondaryColor'
   );
 

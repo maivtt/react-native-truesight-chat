@@ -24,9 +24,11 @@ const FileMessenger: FC<PropsWithChildren<FileMessengerProps>> = (
   const { conversationAttachments, onPress, onLongPress, reply, isOther } =
     props;
   const messageBackgroundColor = useThemeValue<TruesightThemeExtension>(
+    // @ts-ignore
     'messageBackgroundColor'
   );
   const messageBackgroundOtherColor = useThemeValue<TruesightThemeExtension>(
+    // @ts-ignore
     'messageBackgroundOtherColor'
   );
 

@@ -32,9 +32,11 @@ const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
   const primaryColor = useThemeValue('primaryColor');
 
   const messageBackgroundColor = useThemeValue<TruesightThemeExtension>(
+    // @ts-ignore
     'messageBackgroundColor'
   );
   const messageBackgroundOtherColor = useThemeValue<TruesightThemeExtension>(
+    // @ts-ignore
     'messageBackgroundOtherColor'
   );
 
