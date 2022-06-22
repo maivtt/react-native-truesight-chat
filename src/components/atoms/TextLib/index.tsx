@@ -4,11 +4,11 @@ import nameof from 'ts-nameof.macro';
 import { Text, TextProps } from 'react-native';
 import { useThemeValue } from 'react-native-redux-theming';
 import type { TruesightThemeExtension } from 'react-native-truesight-chat';
-import atomicStyles from '../../../styles';
+import TruesightChat from 'react-native-truesight-chat';
 
 export function TextLib(props: PropsWithChildren<TextLibProps>): ReactElement {
   const { children, style, ...resProps } = props;
-
+  const { atomicStyles } = TruesightChat;
   const messageTextPrimaryColor = useThemeValue<TruesightThemeExtension>(
     // @ts-ignore
     'messageTextPrimaryColor'

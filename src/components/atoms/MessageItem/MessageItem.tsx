@@ -16,7 +16,6 @@ import {
   Directions,
   State,
 } from 'react-native-gesture-handler';
-import atomicStyles from '../../../styles';
 import ContentItem from '../ContentItem/ContentItem';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import TextLib from '../TextLib';
@@ -35,6 +34,7 @@ const MessageItem: FC<PropsWithChildren<MessageItemProps>> = (
 ): ReactElement => {
   const { conversationMessage, consecutive, onSwipe, header, globalUser } =
     props;
+  const { atomicStyles } = TruesightChat;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
     // @ts-ignore
     'messageTextSecondaryColor'

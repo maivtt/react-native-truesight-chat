@@ -6,7 +6,7 @@ import { ActivityIndicator, Dimensions, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useThemeValue } from 'react-native-redux-theming';
 import { Lang } from '../../../lang';
-import atomicStyles from '../../../styles';
+import TruesightChat from 'react-native-truesight-chat';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
 
@@ -17,6 +17,7 @@ export function ListLoading(
   const [translate] = useTranslation();
   const darkColor = useThemeValue('darkColor');
   const primaryColor = useThemeValue('primaryColor');
+  const { atomicStyles } = TruesightChat;
 
   return (
     <>

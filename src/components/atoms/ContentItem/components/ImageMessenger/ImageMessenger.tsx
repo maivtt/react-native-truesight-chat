@@ -5,8 +5,8 @@ import styles from './ImageMessenger.scss';
 import type { StyleProp, ViewStyle } from 'react-native';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import type { ConversationMessage } from 'src/models/ConversationMessage';
-import atomicStyles from '../../../../../styles';
 import Reply from '../Reply/Reply';
+import TruesightChat from 'react-native-truesight-chat';
 
 /**
  * File: ImageMessenger.tsx
@@ -18,6 +18,7 @@ const ImageMessenger: FC<PropsWithChildren<ImageMessengerProps>> = (
   props: PropsWithChildren<ImageMessengerProps>
 ): ReactElement => {
   const { conversationMessage, onPress, style } = props;
+  const { atomicStyles } = TruesightChat;
 
   return (
     <View

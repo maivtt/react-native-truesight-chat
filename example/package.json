@@ -43,6 +43,7 @@
     "react-native-svg-transformer": "^1.0.0",
     "react-native-toasty": "^2.0.0",
     "react-native-vector-icons": "^9.1.0",
+    "react-redux": "^8.0.2",
     "react3l-advanced-filters": "^6.0.0",
     "react3l-axios-observable": "^6.0.0",
     "react3l-common": "^6.0.0",

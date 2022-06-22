@@ -11,7 +11,7 @@ import {
 import { Lang } from '../../../lang';
 import { useThemeValue } from 'react-native-redux-theming';
 import { useTranslation } from 'react-i18next';
-import atomicStyles from '../../../styles';
+import TruesightChat from 'react-native-truesight-chat';
 
 export function ListFooter(
   props: PropsWithChildren<ListFooterProps>
@@ -19,6 +19,7 @@ export function ListFooter(
   const { check, isData, isEnd, style } = props;
   const [translate] = useTranslation();
   const darkColor = useThemeValue('darkColor');
+  const { atomicStyles } = TruesightChat;
 
   return (
     <>

@@ -24,7 +24,6 @@ import { SearchField, SearchType } from '../../types/Search';
 import MessageItem from '../atoms/MessageItem/MessageItem';
 import moment from 'moment';
 import { getDate } from '../../helper/string-helper';
-import atomicStyles from '../../styles';
 import TextLib from '../atoms/TextLib';
 import { useThemeValue } from 'react-native-redux-theming';
 
@@ -32,6 +31,7 @@ export function ConversationMessageFlatList(
   props: PropsWithChildren<ConversationMessageFlatListProps>
 ): ReactElement {
   const { conversation, globalUser, onSwipe, style } = props;
+  const { atomicStyles } = TruesightChat;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
     // @ts-ignore
     'messageTextSecondaryColor'
@@ -93,7 +93,7 @@ export function ConversationMessageFlatList(
         />
       );
     },
-    [globalUser, list, messageTextSecondaryColor, onSwipe, total]
+    [atomicStyles, globalUser, list, messageTextSecondaryColor, onSwipe, total]
   );
 
   return (

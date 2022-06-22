@@ -4,12 +4,12 @@ import nameof from 'ts-nameof.macro';
 import styles from './Reply.scss';
 import type { StyleProp, ViewProps } from 'react-native';
 import { Image, View, Text } from 'react-native';
-import atomicStyles from '../../../../../styles';
 import type { ConversationMessage } from 'src/models/ConversationMessage';
 import FileIcon from '../../../../../icons/FileIcon';
 import { checkFile } from '../../../../../helper/file-helper';
 import { DocumentType } from '../../../../../types/DocumentType';
 import TextLib from '../../../TextLib';
+import TruesightChat from 'react-native-truesight-chat';
 
 const REPLY_FONT_SIZE = 12;
 
@@ -23,6 +23,7 @@ const Reply: FC<PropsWithChildren<ReplyProps>> = (
   props: PropsWithChildren<ReplyProps>
 ): ReactElement => {
   const { conversationMessage, color, style } = props;
+  const { atomicStyles } = TruesightChat;
 
   const content = (
     <>
@@ -92,7 +93,7 @@ const Reply: FC<PropsWithChildren<ReplyProps>> = (
       );
     }
     return <View />;
-  }, [color, conversationMessage]);
+  }, [atomicStyles, color, conversationMessage]);
 
   return (
     <>

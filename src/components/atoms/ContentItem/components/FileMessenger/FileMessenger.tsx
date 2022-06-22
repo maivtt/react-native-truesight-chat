@@ -4,13 +4,13 @@ import nameof from 'ts-nameof.macro';
 import styles from './FileMessenger.scss';
 import { TouchableOpacity, View } from 'react-native';
 import { useThemeValue } from 'react-native-redux-theming';
-import atomicStyles from '../../../../../styles';
 import type {
   ConversationAttachment,
   TruesightThemeExtension,
 } from 'react-native-truesight-chat';
 import FileIcon from '../../../../../icons/FileIcon';
 import TextLib from '../../../TextLib';
+import TruesightChat from 'react-native-truesight-chat';
 
 /**
  * File: FileMessenger.tsx
@@ -23,6 +23,7 @@ const FileMessenger: FC<PropsWithChildren<FileMessengerProps>> = (
 ): ReactElement => {
   const { conversationAttachments, onPress, onLongPress, reply, isOther } =
     props;
+  const { atomicStyles } = TruesightChat;
   const messageBackgroundColor = useThemeValue<TruesightThemeExtension>(
     // @ts-ignore
     'messageBackgroundColor'

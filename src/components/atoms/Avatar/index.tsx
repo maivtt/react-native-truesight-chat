@@ -2,11 +2,12 @@ import React from 'react';
 import type { PropsWithChildren, ReactElement } from 'react';
 import nameof from 'ts-nameof.macro';
 import { Image, StyleProp, View, ViewStyle } from 'react-native';
-import atomicStyles from '../../../styles';
 import { avatarStyles } from './Avatar.styles';
+import TruesightChat from 'react-native-truesight-chat';
 
 export function Avatar(props: PropsWithChildren<AvatarProps>): ReactElement {
   const { source, radius, style } = props;
+  const { atomicStyles } = TruesightChat;
 
   return (
     <>

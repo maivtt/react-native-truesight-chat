@@ -20,7 +20,6 @@ import {
 } from 'react-native';
 import ListLoading from '../atoms/ListLoading';
 import ListFooter from '../atoms/ListFooter';
-import atomicStyles from '../../styles';
 import Avatar from '../atoms/Avatar';
 import { getConversationName } from '../../helper/string-helper';
 import SvgIcon from '../atoms/SvgIcon/SvgIcon';
@@ -43,6 +42,8 @@ export function ConversationFlatList(
     avatar,
     avatarRadius,
   } = props;
+
+  const { atomicStyles } = TruesightChat;
 
   const [list, , loading, refreshing, , handleLoadMore, handleRefresh] =
     useList<Conversation, ConversationFilter, SearchField.NAME>(
@@ -137,6 +138,7 @@ export function ConversationFlatList(
       );
     },
     [
+      atomicStyles,
       avatar,
       avatarContainerStyle,
       avatarRadius,
