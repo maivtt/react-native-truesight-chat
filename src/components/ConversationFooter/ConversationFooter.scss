@@ -1,0 +1,68 @@
+/**
+ * ConversationFooter
+ * 2022-06-23 14:42:02
+ */
+.container {
+  flex: 1;
+  background-color: #FFF;
+  padding: 8px 0 16px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.border {
+  border-top-color: #EDEDED;
+  border-top-width: 1px;
+}
+
+.footer {
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 8px;
+}
+
+.bg {
+  //flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 20px;
+  padding: 2px 8px 0 12px;
+  background-color: #f0f0ef;
+}
+
+.input {
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 30px;
+  max-height: 100px;
+  margin-right: 8px;
+}
+
+.inputStyle {
+  flex: 1;
+  padding: 0;
+}
+
+.button {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 56px;
+}
+
+.height {
+  height: 40px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  width: 124px; // CONST
+}

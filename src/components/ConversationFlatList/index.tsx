@@ -41,6 +41,7 @@ export function ConversationFlatList(
     unreadComponent,
     avatar,
     avatarRadius,
+    newConversationLatestContent,
   } = props;
 
   const { atomicStyles } = TruesightChat;
@@ -105,7 +106,7 @@ export function ConversationFlatList(
                 ]}
                 numberOfLines={1}
               >
-                {item?.latestContent}
+                {item?.latestContent ?? newConversationLatestContent}
               </Text>
               {item?.latestGlobalUser && (
                 <View style={[atomicStyles.justifyContentEnd]}>
@@ -145,6 +146,7 @@ export function ConversationFlatList(
       containerStyle,
       contentContainerStyle,
       navigation,
+      newConversationLatestContent,
       target,
       textDescriptionStyle,
       textLabelStyle,
@@ -199,6 +201,8 @@ export interface ConversationFlatListProps {
   avatar?: boolean;
 
   avatarRadius?: number;
+
+  newConversationLatestContent?: string;
 }
 
 ConversationFlatList.defaultProps = {

@@ -240,9 +240,11 @@ PODS:
     - React-Core
   - react-native-flipper (0.127.0):
     - React-Core
+  - react-native-pager-view (5.4.24):
+    - React-Core
   - react-native-safe-area-context (3.4.1):
     - React-Core
-  - react-native-truesight-chat (0.1.0-rc.5):
+  - react-native-truesight-chat (0.1.0-rc.6):
     - React-Core
   - React-RCTActionSheet (0.63.4):
     - React-Core/RCTActionSheetHeaders (= 0.63.4)
@@ -408,6 +410,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-flipper (from `../node_modules/react-native-flipper`)
+  - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-truesight-chat (from `../..`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -485,6 +488,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-document-picker"
   react-native-flipper:
     :path: "../node_modules/react-native-flipper"
+  react-native-pager-view:
+    :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-truesight-chat:
@@ -563,8 +568,9 @@ SPEC CHECKSUMS:
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
   react-native-document-picker: 5663fe4bcdb646200683a41790464d2793307ac8
   react-native-flipper: b9e2e817604af8da0d5a9ba20a8516e780e30f3c
+  react-native-pager-view: 95d0418c3c74279840abec6926653d32447bafb6
   react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
-  react-native-truesight-chat: 6f1541f7deee73d90f575b4db0d21bf7f832f352
+  react-native-truesight-chat: 5a2c6b1d73b21992cef91990d88f204408703d81
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0

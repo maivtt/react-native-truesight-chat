@@ -1,0 +1,41 @@
+/**
+ * ImagePicker
+ * 2022-06-23 15:20:03
+ */
+
+.generalContainer {
+  width: 100%;
+  height: 300px;
+  background-color: white;
+}
+
+.header {
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+}
+
+.topLine {
+  height: 5px;
+  width: 20%;
+  border-radius: 50px;
+}
+
+.textContainer {
+  width: 100%;
+}
+
+.hideIcon {
+  position: absolute;
+  left: 10px;
+  z-index: 10;
+}
+
+.sentButton {
+  padding: 16px;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  align-items: center;
+}
