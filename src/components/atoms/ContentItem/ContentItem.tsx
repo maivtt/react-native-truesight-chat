@@ -16,6 +16,7 @@ import Reply from './components/Reply/Reply';
 import { checkFile } from '../../../helper/file-helper';
 import type { TruesightThemeExtension } from 'react-native-truesight-chat';
 import TextLib from '../TextLib';
+import { conversationService } from '../../../services';
 
 /**
  * File: ContentItem.tsx
@@ -26,8 +27,7 @@ import TextLib from '../TextLib';
 const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
   props: PropsWithChildren<ContentItemProps>
 ): ReactElement => {
-  const { conversationMessage, onPress, onLongPress, isOther, onPrintOrder } =
-    props;
+  const { conversationMessage, onPress, onLongPress, isOther } = props;
   const [show, handleShow] = useBoolean(false);
   const primaryColor = useThemeValue('primaryColor');
 
@@ -39,6 +39,8 @@ const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
     // @ts-ignore
     'messageBackgroundOtherColor'
   );
+
+  const [handlePrintOrder] = conversationService.useDownloadFile();
 
   return (
     <>
@@ -58,8 +60,8 @@ const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
                     conversationMessage?.conversationAttachments
                   }
                   onPress={
-                    onPrintOrder
-                      ? onPrintOrder(
+                    handlePrintOrder
+                      ? handlePrintOrder(
                           conversationMessage?.conversationAttachments[0]
                         )
                       : undefined

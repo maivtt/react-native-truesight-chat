@@ -25,7 +25,6 @@ import type { DocumentPickerResponse } from 'react-native-document-picker';
 import { Repository } from 'react3l-common';
 import { PLATFORM_IS_IOS } from '../config/consts';
 import kebabCase from 'lodash/kebabCase';
-import type { Image } from 'react-native-image-crop-picker';
 
 export class ConversationRepository extends Repository {
   constructor() {
@@ -183,7 +182,7 @@ export class ConversationRepository extends Repository {
   };
 
   public readonly uploadAvatar = (
-    image: Image,
+    image: any,
     conversationId: number
   ): Observable<Conversation> => {
     const formData = new FormData();
