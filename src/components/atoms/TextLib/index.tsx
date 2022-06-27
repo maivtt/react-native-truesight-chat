@@ -1,5 +1,5 @@
-import React from 'react';
 import type { PropsWithChildren, ReactElement } from 'react';
+import React from 'react';
 import nameof from 'ts-nameof.macro';
 import { Text, TextProps } from 'react-native';
 import { useThemeValue } from 'react-native-redux-theming';

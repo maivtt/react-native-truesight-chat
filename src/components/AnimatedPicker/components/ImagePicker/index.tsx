@@ -1,6 +1,6 @@
+import type { PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
 import styles from './ImagePicker.scss';
-import type { PropsWithChildren, ReactElement } from 'react';
 import nameof from 'ts-nameof.macro';
 import {
   Dimensions,
@@ -16,6 +16,7 @@ import TruesightChat from 'react-native-truesight-chat';
 import SvgIcon from '../../../atoms/SvgIcon/SvgIcon';
 import TextLib from '../../../atoms/TextLib';
 import ImageItem from '../../../atoms/ImageItem';
+
 const { width: SCREEN_WIDTH } = Dimensions.get('screen');
 
 export interface ImagePickerResponse {

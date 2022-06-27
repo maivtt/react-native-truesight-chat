@@ -9,12 +9,14 @@ import ImageView from 'react-native-image-viewing';
 import { useBoolean } from 'react3l-common';
 import { useThemeValue } from 'react-native-redux-theming';
 import ImageMessenger from './components/ImageMessenger/ImageMessenger';
-import type { ConversationMessage } from 'react-native-truesight-chat';
+import type {
+  ConversationMessage,
+  TruesightThemeExtension,
+} from 'react-native-truesight-chat';
 import { DocumentType } from '../../../types/DocumentType';
 import FileMessenger from './components/FileMessenger/FileMessenger';
 import Reply from './components/Reply/Reply';
 import { checkFile } from '../../../helper/file-helper';
-import type { TruesightThemeExtension } from 'react-native-truesight-chat';
 import TextLib from '../TextLib';
 import { conversationService } from '../../../services';
 

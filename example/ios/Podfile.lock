@@ -238,6 +238,8 @@ PODS:
   - React-jsinspector (0.63.4)
   - react-native-blob-util (0.16.0):
     - React-Core
+  - react-native-cameraroll (4.1.2):
+    - React-Core
   - react-native-document-picker (8.1.0):
     - React-Core
   - react-native-flipper (0.127.0):
@@ -402,6 +404,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
+  - "react-native-cameraroll (from `../node_modules/@react-native-community/cameraroll`)"
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-flipper (from `../node_modules/react-native-flipper`)
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
@@ -479,6 +482,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-blob-util:
     :path: "../node_modules/react-native-blob-util"
+  react-native-cameraroll:
+    :path: "../node_modules/@react-native-community/cameraroll"
   react-native-document-picker:
     :path: "../node_modules/react-native-document-picker"
   react-native-flipper:
@@ -562,6 +567,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
   react-native-blob-util: 2d49d135d6fe1410c019fb5bff241dac7f12d73d
+  react-native-cameraroll: 2957f2bce63ae896a848fbe0d5352c1bd4d20866
   react-native-document-picker: 5663fe4bcdb646200683a41790464d2793307ac8
   react-native-flipper: b9e2e817604af8da0d5a9ba20a8516e780e30f3c
   react-native-pager-view: 95d0418c3c74279840abec6926653d32447bafb6

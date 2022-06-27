@@ -1,9 +1,13 @@
 import atomicStyles from 'react-native-atomic-styles/src/styles.scss';
 import type {
   Conversation,
+  ConversationAttachment,
+  ConversationAttachmentFilter,
   ConversationFilter,
   ConversationMessage,
   ConversationMessageFilter,
+  GlobalUser,
+  GlobalUserFilter,
 } from 'src/models';
 import type { Observable } from 'rxjs';
 
@@ -14,6 +18,10 @@ export * from './components';
 export * from './types';
 
 interface TruesightChatOptions {
+  atomicStyles?: typeof TruesightChat['atomicStyles'];
+
+  serverUrl?: typeof TruesightChat['serverUrl'];
+
   listConversation: typeof TruesightChat['listConversation'];
 
   countConversation: typeof TruesightChat['countConversation'];
@@ -22,12 +30,20 @@ interface TruesightChatOptions {
 
   countConversationMessage: typeof TruesightChat['countConversationMessage'];
 
-  atomicStyles?: typeof TruesightChat['atomicStyles'];
+  listConversationAttachment: typeof TruesightChat['listConversationAttachment'];
 
-  serverUrl?: typeof TruesightChat['serverUrl'];
+  countConversationAttachment: typeof TruesightChat['countConversationAttachment'];
+
+  singleListGlobalUser: typeof TruesightChat['singleListGlobalUser'];
+
+  create: typeof TruesightChat['create'];
 }
 
 class TruesightChat {
+  public static atomicStyles: typeof atomicStyles = atomicStyles;
+
+  public static serverUrl: string;
+
   public static listConversation: (
     conversationFilter: ConversationFilter
   ) => Observable<Conversation[]>;
@@ -44,11 +60,29 @@ class TruesightChat {
     conversationMessageFilter: ConversationMessageFilter
   ) => Observable<number>;
 
-  public static atomicStyles: typeof atomicStyles = atomicStyles;
+  public static listConversationAttachment: (
+    conversationAttachmentFilter: ConversationAttachmentFilter
+  ) => Observable<ConversationAttachment[]>;
 
-  public static serverUrl: string;
+  public static countConversationAttachment: (
+    conversationAttachmentFilter: ConversationAttachmentFilter
+  ) => Observable<number>;
+
+  public static singleListGlobalUser: (
+    globalUserFilter: GlobalUserFilter
+  ) => Observable<GlobalUser[]>;
+
+  public static create: (
+    conversation: Conversation
+  ) => Observable<Conversation>;
 
   public static config(options: TruesightChatOptions) {
+    if (options.atomicStyles) {
+      this.atomicStyles = options.atomicStyles;
+    }
+    if (options.serverUrl) {
+      this.serverUrl = options.serverUrl;
+    }
     if (options.listConversation) {
       this.listConversation = options.listConversation;
     } else {
@@ -69,8 +103,25 @@ class TruesightChat {
     } else {
       console.error('Missing count conversation message');
     }
-    if (options.atomicStyles) {
-      this.atomicStyles = options.atomicStyles;
+    if (options.listConversationAttachment) {
+      this.listConversationAttachment = options.listConversationAttachment;
+    } else {
+      console.error('Missing list conversation attachment');
+    }
+    if (options.countConversationAttachment) {
+      this.countConversationAttachment = options.countConversationAttachment;
+    } else {
+      console.error('Missing count conversation attachment');
+    }
+    if (options.singleListGlobalUser) {
+      this.singleListGlobalUser = options.singleListGlobalUser;
+    } else {
+      console.error('Missing single list global u∂ser');
+    }
+    if (options.create) {
+      this.create = options.create;
+    } else {
+      console.error('Missing create conversation');
     }
   }
 }

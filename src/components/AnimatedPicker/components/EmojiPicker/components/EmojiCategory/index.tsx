@@ -1,8 +1,8 @@
-import React from 'react';
 import type { PropsWithChildren, ReactElement } from 'react';
+import React from 'react';
 import nameof from 'ts-nameof.macro';
 import { emojiCategoryStyles } from './EmojiCategory.styles';
-import { FlatList, TouchableOpacity, Text } from 'react-native';
+import { FlatList, Text, TouchableOpacity } from 'react-native';
 import { emojisByCategory } from '../../../../../../icons/emoji';
 import shortnameToUnicode from '../../../../../../helper/shortnameToUnicode';
 

@@ -7,13 +7,13 @@ import styles from './MessageItem.scss';
 import { useBoolean } from 'react3l-common';
 import moment from 'moment';
 import Animated, {
-  withSpring,
   useAnimatedStyle,
   useSharedValue,
+  withSpring,
 } from 'react-native-reanimated';
 import {
-  FlingGestureHandler,
   Directions,
+  FlingGestureHandler,
   State,
 } from 'react-native-gesture-handler';
 import ContentItem from '../ContentItem/ContentItem';

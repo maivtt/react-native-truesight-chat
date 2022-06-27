@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import FileViewer from 'react-native-file-viewer';
 import type { ConversationAttachment } from 'src/models/ConversationAttachment';
 import { Platform } from 'react-native';
+
 const PLATFORM_IS_ANDROID: boolean = Platform.OS === 'android';
 
 export function useDownloadFile(): [

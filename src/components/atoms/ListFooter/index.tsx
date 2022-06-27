@@ -1,5 +1,5 @@
-import React from 'react';
 import type { PropsWithChildren, ReactElement } from 'react';
+import React from 'react';
 import nameof from 'ts-nameof.macro';
 import {
   ActivityIndicator,

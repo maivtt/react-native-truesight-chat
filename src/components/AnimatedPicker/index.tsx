@@ -1,11 +1,12 @@
+import type { PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
 import styles from './AnimatedPicker.scss';
-import type { PropsWithChildren, ReactElement } from 'react';
 import nameof from 'ts-nameof.macro';
 import ImagePicker, { ImagePickerProps } from './components/ImagePicker';
 import { Dimensions, View } from 'react-native';
 import EmojiPicker from './components/EmojiPicker';
 import { AttachmentType } from 'react-native-truesight-chat';
+
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('screen');
 
 export function AnimatedPicker(

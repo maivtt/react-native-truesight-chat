@@ -1,10 +1,14 @@
+import type { PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
 import './ConversationMessageFlatList.scss';
-import type { PropsWithChildren, ReactElement } from 'react';
 import nameof from 'ts-nameof.macro';
 import type {
   Conversation,
   ConversationMessage,
+} from 'react-native-truesight-chat';
+import TruesightChat, {
+  ConversationMessageFilter,
+  TruesightThemeExtension,
 } from 'react-native-truesight-chat';
 import {
   FlatList,
@@ -16,10 +20,6 @@ import {
 } from 'react-native';
 import { LoadingStatus, useList } from '../../hooks/use-list';
 import ListFooter from '../atoms/ListFooter';
-import TruesightChat, {
-  ConversationMessageFilter,
-  TruesightThemeExtension,
-} from 'react-native-truesight-chat';
 import { SearchField, SearchType } from '../../types/Search';
 import MessageItem from '../atoms/MessageItem/MessageItem';
 import moment from 'moment';

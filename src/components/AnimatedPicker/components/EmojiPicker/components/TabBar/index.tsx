@@ -1,7 +1,7 @@
-import React from 'react';
 import type { PropsWithChildren, ReactElement } from 'react';
+import React from 'react';
 import nameof from 'ts-nameof.macro';
-import { TouchableOpacity, View, Animated } from 'react-native';
+import { Animated, TouchableOpacity, View } from 'react-native';
 import { tabBarStyles } from './TabBar.styles';
 import type { NavigationState } from 'react-native-tab-view';
 

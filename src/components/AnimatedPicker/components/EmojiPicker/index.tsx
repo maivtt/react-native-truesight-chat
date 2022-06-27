@@ -1,14 +1,15 @@
+import type { PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
 import styles from './EmojiPicker.scss';
-import type { PropsWithChildren, ReactElement } from 'react';
 import nameof from 'ts-nameof.macro';
 import categories from '../../../../icons/emoji/categories';
-import { Dimensions, FlatList, TouchableOpacity, Text } from 'react-native';
+import { Dimensions, FlatList, Text, TouchableOpacity } from 'react-native';
 import { emojisByCategory } from '../../../../icons/emoji';
 import shortnameToUnicode from '../../../../helper/shortnameToUnicode';
 import TruesightChat from 'react-native-truesight-chat';
 import { TabView } from 'react-native-tab-view';
 import TabBar from './components/TabBar';
+
 const { width: SCREEN_WIDTH } = Dimensions.get('screen');
 
 export function EmojiPicker(

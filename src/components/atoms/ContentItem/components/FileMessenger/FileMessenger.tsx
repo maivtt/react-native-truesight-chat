@@ -8,9 +8,9 @@ import type {
   ConversationAttachment,
   TruesightThemeExtension,
 } from 'react-native-truesight-chat';
+import TruesightChat from 'react-native-truesight-chat';
 import FileIcon from '../../../../../icons/FileIcon';
 import TextLib from '../../../TextLib';
-import TruesightChat from 'react-native-truesight-chat';
 
 /**
  * File: FileMessenger.tsx

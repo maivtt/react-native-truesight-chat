@@ -3,7 +3,7 @@ import React from 'react';
 import nameof from 'ts-nameof.macro';
 import styles from './Reply.scss';
 import type { StyleProp, ViewProps } from 'react-native';
-import { Image, View, Text } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import type { ConversationMessage } from 'src/models/ConversationMessage';
 import FileIcon from '../../../../../icons/FileIcon';
 import { checkFile } from '../../../../../helper/file-helper';

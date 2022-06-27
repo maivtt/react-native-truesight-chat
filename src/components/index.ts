@@ -1,12 +1,11 @@
-import ConversationFlatList from './ConversationFlatList';
-import ConversationMessageFlatList from './ConversationMessageFlatList';
-import ConversationFooter from './ConversationFooter';
-import AnimatedPicker from './AnimatedPicker';
-
 import type { ConversationFlatListProps } from './ConversationFlatList';
+import ConversationFlatList from './ConversationFlatList';
 import type { ConversationMessageFlatListProps } from './ConversationMessageFlatList';
+import ConversationMessageFlatList from './ConversationMessageFlatList';
 import type { ConversationFooterProps } from './ConversationFooter';
+import ConversationFooter from './ConversationFooter';
 import type { AnimatedPickerProps } from './AnimatedPicker';
+import AnimatedPicker from './AnimatedPicker';
 
 export type {
   ConversationFlatListProps,
