@@ -17,6 +17,7 @@ import SvgIcon from '../../../atoms/SvgIcon/SvgIcon';
 import TextLib from '../../../atoms/TextLib';
 import ImageItem from '../../../atoms/ImageItem';
 import type { ImagePickerResponse } from '../../../../types/ImagePickerResponse';
+import { useThemeValue } from 'react-native-redux-theming';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('screen');
 
@@ -36,6 +37,7 @@ export function ImagePicker(
   } = props;
   const { atomicStyles } = TruesightChat;
   const [translate] = useTranslation();
+  const primaryColor = useThemeValue('primaryColor');
 
   const handlePressSendImage = React.useCallback(() => {
     const images = Object.keys(selectItemsObject!).map(
@@ -109,11 +111,11 @@ export function ImagePicker(
           onPress={handlePressSendImage}
           style={[
             styles.sentButton,
-            atomicStyles.bgPrimary,
+            { backgroundColor: primaryColor },
             //{ bottom: bottom + 16 },
           ]}
         >
-          <TextLib style={[atomicStyles.textBold, atomicStyles.textWhite]}>
+          <TextLib style={[atomicStyles.textBold, { color: '#FFF' }]}>
             {translate('Lang.Messenger.Conversation.SendImage', {
               total: numberSelectedItem! > 1 ? numberSelectedItem : '',
             })}
