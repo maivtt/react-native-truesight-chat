@@ -1,7 +1,7 @@
 import React from 'react';
 import { LogBox, PermissionsAndroid, Platform } from 'react-native';
 import CameraRoll from '@react-native-community/cameraroll';
-import type { ImagePickerResponse } from '../components/AnimatedPicker/components/ImagePicker';
+import type { ImagePickerResponse } from 'react-native-truesight-chat';
 
 const PLATFORM_IS_ANDROID: boolean = Platform.OS === 'android';
 
