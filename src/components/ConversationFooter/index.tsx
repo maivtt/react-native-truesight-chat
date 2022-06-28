@@ -12,12 +12,13 @@ import {
   Dimensions,
   Platform,
   StyleProp,
+  TextInput,
+  TextInputProps,
   TouchableOpacity,
   View,
   ViewStyle,
 } from 'react-native';
 import SvgIcon from '../atoms/SvgIcon/SvgIcon';
-import TextLib from '../atoms/TextLib';
 import TruesightChat, {
   ConversationMessage,
 } from 'react-native-truesight-chat';
@@ -99,14 +100,13 @@ export function ConversationFooter(
           </Animated.View>
           <Animated.View style={[styles.bg, inputStyle, springStyles]}>
             <View style={styles.input}>
-              <TextLib
+              <TextInput
                 style={[
                   styles.inputStyle,
                   PLATFORM_IS_IOS && atomicStyles.mb4,
                   PLATFORM_IS_ANDROID && atomicStyles.mb2,
                   atomicStyles.regular,
                 ]}
-                // @ts-ignore
                 placeholder={'Aa'}
                 value={value}
                 multiline
@@ -136,9 +136,7 @@ export function ConversationFooter(
   );
 }
 
-export interface ConversationFooterProps {
-  value?: string;
-
+export interface ConversationFooterProps extends TextInputProps {
   onSend?: (value: string) => void;
 
   onImage?: () => void;

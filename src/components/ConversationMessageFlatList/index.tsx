@@ -1,13 +1,9 @@
 import type { PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
-import './ConversationMessageFlatList.scss';
+import styles from './ConversationMessageFlatList.scss';
 import nameof from 'ts-nameof.macro';
-import type {
-  Conversation,
-  ConversationMessage,
-} from 'react-native-truesight-chat';
+import type { ConversationMessage } from 'react-native-truesight-chat';
 import TruesightChat, {
-  ConversationMessageFilter,
   TruesightThemeExtension,
 } from 'react-native-truesight-chat';
 import {
@@ -18,42 +14,35 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { LoadingStatus, useList } from '../../hooks/use-list';
+import { LoadingStatus } from '../../hooks/use-list';
 import ListFooter from '../atoms/ListFooter';
-import { SearchField, SearchType } from '../../types/Search';
 import MessageItem from '../atoms/MessageItem/MessageItem';
 import moment from 'moment';
 import { getDate } from '../../helper/string-helper';
 import TextLib from '../atoms/TextLib';
 import { useThemeValue } from 'react-native-redux-theming';
+import Loading from 'react-native-spinkit';
 
 export function ConversationMessageFlatList(
   props: PropsWithChildren<ConversationMessageFlatListProps>
 ): ReactElement {
-  const { conversation, globalUser, onSwipe, style } = props;
+  const {
+    globalUser,
+    onSwipe,
+    style,
+    list,
+    total,
+    loading,
+    refreshing,
+    onLoadMore,
+    typingLoading,
+  } = props;
   const { atomicStyles } = TruesightChat;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
     // @ts-ignore
     'messageTextSecondaryColor'
   );
-
-  const [list, total, loading, refreshing, , handleLoadMore] = useList<
-    ConversationMessage,
-    ConversationMessageFilter,
-    SearchField.NAME
-  >(
-    ConversationMessageFilter,
-    TruesightChat.listConversationMessage,
-    TruesightChat.countConversationMessage,
-    SearchField.NAME,
-    SearchType.CONTAIN,
-    {
-      ...new ConversationMessageFilter(),
-      conversationId: {
-        equal: conversation.id,
-      },
-    }
-  );
+  const primaryColor = useThemeValue('primaryColor');
 
   const renderItem: ListRenderItem<ConversationMessage> = React.useCallback(
     ({ item, index }: ListRenderItemInfo<ConversationMessage>) => {
@@ -109,8 +98,21 @@ export function ConversationMessageFlatList(
         scrollEventThrottle={10}
         refreshing={refreshing}
         onEndReachedThreshold={0.5}
-        onEndReached={handleLoadMore}
-        ListHeaderComponent={<></>}
+        onEndReached={onLoadMore}
+        ListHeaderComponent={
+          <>
+            {typingLoading && (
+              <View style={[styles.loading, { backgroundColor: primaryColor }]}>
+                <Loading
+                  isVisible={true}
+                  size={20}
+                  color={'white'}
+                  type={'ThreeBounce'}
+                />
+              </View>
+            )}
+          </>
+        }
         ListHeaderComponentStyle={[]}
         ListFooterComponent={
           <ListFooter
@@ -126,11 +128,21 @@ export function ConversationMessageFlatList(
 }
 
 export interface ConversationMessageFlatListProps {
-  conversation: Conversation;
-
   globalUser?: any;
 
   onSwipe?: (conversationMessage: ConversationMessage) => void;
+
+  list: ConversationMessage[];
+
+  total: number;
+
+  loading?: LoadingStatus;
+
+  refreshing?: boolean;
+
+  onLoadMore?: () => void;
+
+  typingLoading?: boolean;
 
   style?: StyleProp<ViewStyle>;
 }

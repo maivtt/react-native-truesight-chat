@@ -322,6 +322,8 @@ PODS:
     - React-Core
   - RNImageHelper (0.0.3):
     - React
+  - RNPermissions (3.3.1):
+    - React-Core
   - RNReanimated (2.4.1):
     - DoubleConversion
     - FBLazyVector
@@ -426,6 +428,7 @@ DEPENDENCIES:
   - RNFileViewer (from `../node_modules/react-native-file-viewer`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNImageHelper (from `../node_modules/react-native-image-helper/ios`)
+  - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
@@ -526,6 +529,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNImageHelper:
     :path: "../node_modules/react-native-image-helper/ios"
+  RNPermissions:
+    :path: "../node_modules/react-native-permissions"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -589,6 +594,7 @@ SPEC CHECKSUMS:
   RNFileViewer: ce7ca3ac370e18554d35d6355cffd7c30437c592
   RNGestureHandler: bad495418bcbd3ab47017a38d93d290ebd406f50
   RNImageHelper: efb1e1b39f0e19a40b8873c2c1c9614c0dd150ed
+  RNPermissions: 34d678157c800b25b22a488e4d8babb57456e796
   RNReanimated: 236d017c67ebd1c7f008d7d1bbc48c1c6b07cc28
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
   RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8

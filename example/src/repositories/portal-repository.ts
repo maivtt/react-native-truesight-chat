@@ -2,8 +2,8 @@ import { server } from '../config/server';
 import { Repository } from 'react3l-common';
 import { httpConfig } from '../config/repository';
 import type { Observable } from 'rxjs';
-import type { AxiosResponse } from 'axios';
 import { map } from 'rxjs';
+import type { AxiosResponse } from 'axios';
 import nameof from 'ts-nameof.macro';
 import kebabCase from 'lodash/kebabCase';
 

@@ -4,9 +4,9 @@ import styles from './ImageItem.scss';
 import nameof from 'ts-nameof.macro';
 import { Dimensions, Image, Pressable, View } from 'react-native';
 import { useThemeValue } from 'react-native-redux-theming';
-import type { ImagePickerResponse } from '../../AnimatedPicker/components/ImagePicker';
 import TruesightChat from 'react-native-truesight-chat';
 import TextLib from '../TextLib';
+import type { ImagePickerResponse } from '../../../types/ImagePickerResponse';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('screen');
 

@@ -1,5 +1,5 @@
-import React from 'react';
 import type { PropsWithChildren, ReactElement } from 'react';
+import React from 'react';
 import nameof from 'ts-nameof.macro';
 import { ConversationFlatList } from 'react-native-truesight-chat';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';

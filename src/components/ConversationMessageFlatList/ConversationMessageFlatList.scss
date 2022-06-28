@@ -2,3 +2,20 @@
  * ConversationMessageFlatList
  * 2022-06-13 09:38:30
  */
+
+.footer {
+  height: 40px;
+  width: 100%;
+}
+
+.loading {
+  padding: 8px 16px;
+  margin: 8px 0;
+  border-radius: 8px;
+}
+
+.headerListStyle {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}

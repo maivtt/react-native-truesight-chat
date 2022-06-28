@@ -1,6 +1,6 @@
 import { useCamera } from './use-camera';
 import { useListConversation } from './use-list-conversation';
-import { useListMessage } from './use-list-message';
+import { useChat } from './use-chat';
 import { useDownloadFile } from './use-download-file';
 import { useImage } from './use-image';
 import { useListGlobalUser } from './use-list-global-user';
@@ -11,7 +11,7 @@ import { useCreateGroupConversation } from './use-create-group-conversation';
 export class ConversationService {
   public readonly useListConversation = useListConversation;
 
-  public readonly useListMessage = useListMessage;
+  public readonly useChat = useChat;
 
   public readonly useCamera = useCamera;
 

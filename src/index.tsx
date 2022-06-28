@@ -3,6 +3,7 @@ import type {
   Conversation,
   ConversationAttachment,
   ConversationAttachmentFilter,
+  ConversationFile,
   ConversationFilter,
   ConversationMessage,
   ConversationMessageFilter,
@@ -10,6 +11,8 @@ import type {
   GlobalUserFilter,
 } from 'src/models';
 import type { Observable } from 'rxjs';
+import type { DocumentPickerResponse } from 'react-native-document-picker';
+import type { ImagePickerResponse } from 'src/types';
 
 export * from './models';
 
@@ -37,6 +40,8 @@ interface TruesightChatOptions {
   singleListGlobalUser: typeof TruesightChat['singleListGlobalUser'];
 
   create: typeof TruesightChat['create'];
+
+  multiUploadFile: typeof TruesightChat['multiUploadFile'];
 }
 
 class TruesightChat {
@@ -75,6 +80,10 @@ class TruesightChat {
   public static create: (
     conversation: Conversation
   ) => Observable<Conversation>;
+
+  public static multiUploadFile: (
+    images: ImagePickerResponse[] | DocumentPickerResponse[]
+  ) => Observable<ConversationFile[]>;
 
   public static config(options: TruesightChatOptions) {
     if (options.atomicStyles) {
@@ -122,6 +131,11 @@ class TruesightChat {
       this.create = options.create;
     } else {
       console.error('Missing create conversation');
+    }
+    if (options.multiUploadFile) {
+      this.multiUploadFile = options.multiUploadFile;
+    } else {
+      console.error('Missing multiple upload file');
     }
   }
 }

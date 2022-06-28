@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { conversationMessageRepository } from './repositories/conversation-message-repository';
 import { server } from './config/server';
+import { signalService } from './services/signalr-service';
 
 enableScreens();
 
@@ -25,6 +26,13 @@ TruesightChat.config({
   countConversation: conversationRepository.count,
   listConversationMessage: conversationMessageRepository.list,
   countConversationMessage: conversationMessageRepository.count,
+  listConversationAttachment:
+    conversationMessageRepository.listConversationAttachment,
+  countConversationAttachment:
+    conversationMessageRepository.countConversationAttachment,
+  multiUploadFile: conversationRepository.multiUploadFile,
+  create: conversationMessageRepository.create,
+  singleListGlobalUser: conversationRepository.singleListGlobalUser,
 });
 
 export default function App(): ReactElement {
@@ -34,6 +42,7 @@ export default function App(): ReactElement {
       next: async (value) => {
         await globalState.setToken(value.token);
         await globalState.setRefreshToken(value.refreshToken);
+        await signalService.hubConnectionSignalr();
       },
     });
   }, []);

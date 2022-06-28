@@ -16,24 +16,9 @@ import TruesightChat from 'react-native-truesight-chat';
 import SvgIcon from '../../../atoms/SvgIcon/SvgIcon';
 import TextLib from '../../../atoms/TextLib';
 import ImageItem from '../../../atoms/ImageItem';
+import type { ImagePickerResponse } from '../../../../types/ImagePickerResponse';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('screen');
-
-export interface ImagePickerResponse {
-  groupName?: string;
-
-  uri: string;
-
-  height?: number;
-
-  width?: number;
-
-  fileName: string;
-
-  timestamp: number;
-
-  type?: string;
-}
 
 export function ImagePicker(
   props: PropsWithChildren<ImagePickerProps>
