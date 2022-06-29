@@ -38,7 +38,7 @@ export function ConversationChat(
     handleLoadMore,
     content,
     typingLoading,
-    ,
+    error,
     handleChat,
     handleSend,
     handleChooseImage,
@@ -76,7 +76,8 @@ export function ConversationChat(
         globalUser={globalUser}
         onSwipe={handleSelectedMessage}
         typingLoading={typingLoading}
-        style={conversationListStyle}
+        error={error}
+        style={[conversationListStyle]}
       />
 
       <ConversationFooter

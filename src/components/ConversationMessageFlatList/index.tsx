@@ -22,6 +22,7 @@ import { getDate } from '../../helper/string-helper';
 import TextLib from '../atoms/TextLib';
 import { useThemeValue } from 'react-native-redux-theming';
 import Loading from 'react-native-spinkit';
+import SvgIcon from '../atoms/SvgIcon/SvgIcon';
 
 export function ConversationMessageFlatList(
   props: PropsWithChildren<ConversationMessageFlatListProps>
@@ -36,6 +37,7 @@ export function ConversationMessageFlatList(
     refreshing,
     onLoadMore,
     typingLoading,
+    error,
   } = props;
   const { atomicStyles } = TruesightChat;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
@@ -43,6 +45,7 @@ export function ConversationMessageFlatList(
     'messageTextSecondaryColor'
   );
   const primaryColor = useThemeValue('primaryColor');
+  const dangerColor = useThemeValue('dangerColor');
 
   const renderItem: ListRenderItem<ConversationMessage> = React.useCallback(
     ({ item, index }: ListRenderItemInfo<ConversationMessage>) => {
@@ -111,9 +114,26 @@ export function ConversationMessageFlatList(
                 />
               </View>
             )}
+            {error && !typingLoading && (
+              <View style={atomicStyles.flexRowCenter}>
+                <SvgIcon
+                  component={require('../../../assets/icons/error.svg')}
+                />
+                <TextLib
+                  style={[
+                    atomicStyles.my2,
+                    atomicStyles.ml2,
+                    { color: dangerColor },
+                  ]}
+                >
+                  {error}
+                </TextLib>
+              </View>
+            )}
+            <View style={styles.footer} />
           </>
         }
-        ListHeaderComponentStyle={[]}
+        ListHeaderComponentStyle={[styles.headerListStyle]}
         ListFooterComponent={
           <ListFooter
             isData={true}
@@ -143,6 +163,8 @@ export interface ConversationMessageFlatListProps {
   onLoadMore?: () => void;
 
   typingLoading?: boolean;
+
+  error?: string;
 
   style?: StyleProp<ViewStyle>;
 }
