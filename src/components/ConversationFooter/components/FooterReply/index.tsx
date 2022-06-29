@@ -8,15 +8,13 @@ import TruesightChat, {
 } from 'react-native-truesight-chat';
 import { DocumentType } from '../../../../types/DocumentType';
 import { checkFile } from '../../../../helper/file-helper';
-import { useTranslation } from 'react-i18next';
 import TextLib from '../../../atoms/TextLib';
 import SvgIcon from '../../../atoms/SvgIcon/SvgIcon';
 
 export function FooterReply(
   props: PropsWithChildren<FooterReplyProps>
 ): ReactElement {
-  const { conversationMessage, onCancel } = props;
-  const [translate] = useTranslation();
+  const { conversationMessage, onCancel, replyLabel } = props;
   const { atomicStyles } = TruesightChat;
 
   const reMessengerContent = React.useMemo(() => {
@@ -69,7 +67,7 @@ export function FooterReply(
       <View style={styles.dash}>
         <View style={[atomicStyles.flex]}>
           <View style={[atomicStyles.flexRow, atomicStyles.mb1]}>
-            <TextLib>{translate('Reply')}</TextLib>
+            <TextLib>{replyLabel ?? 'Reply '}</TextLib>
             <TextLib style={[atomicStyles.semibold]}>
               {conversationMessage?.globalUser?.displayName}
             </TextLib>
@@ -93,6 +91,8 @@ export interface FooterReplyProps {
   conversationMessage: ConversationMessage;
 
   onCancel?: () => void;
+
+  replyLabel?: string;
 }
 
 FooterReply.defaultProps = {

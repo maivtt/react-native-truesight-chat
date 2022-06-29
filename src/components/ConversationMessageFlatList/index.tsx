@@ -38,6 +38,7 @@ export function ConversationMessageFlatList(
     onLoadMore,
     typingLoading,
     error,
+    listEnd,
   } = props;
   const { atomicStyles } = TruesightChat;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
@@ -139,6 +140,7 @@ export function ConversationMessageFlatList(
             isData={true}
             isEnd={false}
             check={total !== list?.length}
+            listEnd={listEnd}
           />
         }
         style={style}
@@ -167,6 +169,8 @@ export interface ConversationMessageFlatListProps {
   error?: string;
 
   style?: StyleProp<ViewStyle>;
+
+  listEnd?: string;
 }
 
 ConversationMessageFlatList.defaultProps = {

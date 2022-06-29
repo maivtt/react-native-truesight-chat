@@ -11,7 +11,6 @@ import {
 } from '../reducers/conversation-reducer';
 import { finalize, Subscription } from 'rxjs';
 import type { AxiosError } from 'axios';
-import { useTranslation } from 'react-i18next';
 
 export function useCreateGroupConversation(
   currentGlobalUser: GlobalUser
@@ -26,8 +25,6 @@ export function useCreateGroupConversation(
   () => void,
   () => void
 ] {
-  const [translate] = useTranslation();
-
   const [
     { conversationParticipants, conversationName, loading, error, visible },
     dispatch,
@@ -65,7 +62,7 @@ export function useCreateGroupConversation(
     if (conversationName!.length === 0) {
       dispatch({
         type: ConversationReducerActionType.SetError,
-        error: translate('Lang.Messenger.ConversationGroup.NameRequired'),
+        error: 'Lang.Messenger.ConversationGroup.NameRequired',
       });
       return;
     }
@@ -106,7 +103,7 @@ export function useCreateGroupConversation(
     return function cleanup() {
       subscription.unsubscribe();
     };
-  }, [conversationName, conversationParticipants, translate]);
+  }, [conversationName, conversationParticipants]);
 
   return [
     conversationParticipants!,

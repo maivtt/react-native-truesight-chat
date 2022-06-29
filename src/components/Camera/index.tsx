@@ -12,7 +12,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
 import { conversationService } from '../../services';
 import { getImageNameByUri } from '../../helper/file-helper';
 import SvgIcon from '../atoms/SvgIcon/SvgIcon';
@@ -25,8 +24,7 @@ import { useThemeValue } from 'react-native-redux-theming';
 const PLATFORM_IS_ANDROID: boolean = Platform.OS === 'android';
 
 export function Camera(props: PropsWithChildren<CameraProps>): ReactElement {
-  const { onCancel, loading, onSend } = props;
-  const [translate] = useTranslation();
+  const { onCancel, loading, onSend, sendLabel } = props;
   const { atomicStyles } = TruesightChat;
   const primaryColor = useThemeValue('primaryColor');
 
@@ -107,7 +105,7 @@ export function Camera(props: PropsWithChildren<CameraProps>): ReactElement {
             style={[styles.buttonSave, { backgroundColor: primaryColor }]}
           >
             <TextLib style={[atomicStyles.textBold, { color: '#FFF' }]}>
-              {translate('Lang.Action.Send')}
+              {sendLabel ?? 'Send'}
             </TextLib>
             {loading && (
               <ActivityIndicator color={'#FFF'} style={[atomicStyles.ml4]} />
@@ -125,6 +123,8 @@ export interface CameraProps {
   onCancel?: () => void;
 
   onSend?: (pic: ImagePickerResponse[]) => void;
+
+  sendLabel?: string;
 }
 
 Camera.defaultProps = {

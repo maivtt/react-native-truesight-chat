@@ -42,6 +42,9 @@ export function ConversationFlatList(
     avatar,
     avatarRadius,
     newConversationLatestContent,
+    listEmpty,
+    listError,
+    listEnd,
   } = props;
 
   const { atomicStyles } = TruesightChat;
@@ -166,9 +169,20 @@ export function ConversationFlatList(
         onEndReachedThreshold={0.5}
         onEndReached={handleLoadMore}
         onRefresh={handleRefresh}
-        ListEmptyComponent={<ListLoading loading={loading} />}
+        ListEmptyComponent={
+          <ListLoading
+            loading={loading}
+            listEmpty={listEmpty}
+            listError={listError}
+          />
+        }
         ListFooterComponent={
-          <ListFooter isData={true} check={false} style={atomicStyles.pb4} />
+          <ListFooter
+            isData={true}
+            check={false}
+            style={atomicStyles.pb4}
+            listEnd={listEnd}
+          />
         }
       />
     </>
@@ -203,6 +217,12 @@ export interface ConversationFlatListProps {
   avatarRadius?: number;
 
   newConversationLatestContent?: string;
+
+  listEmpty?: string;
+
+  listError?: string;
+
+  listEnd?: string;
 }
 
 ConversationFlatList.defaultProps = {

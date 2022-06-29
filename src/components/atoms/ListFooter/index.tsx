@@ -8,16 +8,13 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { Lang } from '../../../lang';
 import { useThemeValue } from 'react-native-redux-theming';
-import { useTranslation } from 'react-i18next';
 import TruesightChat from 'react-native-truesight-chat';
 
 export function ListFooter(
   props: PropsWithChildren<ListFooterProps>
 ): ReactElement {
-  const { check, isData, isEnd, style } = props;
-  const [translate] = useTranslation();
+  const { check, isData, isEnd, listEnd, style } = props;
   const darkColor = useThemeValue('darkColor');
   const { atomicStyles } = TruesightChat;
 
@@ -33,7 +30,7 @@ export function ListFooter(
             ) : (
               isEnd && (
                 <View style={[atomicStyles.alignItemsCenter, atomicStyles.mt1]}>
-                  <Text>{translate(Lang.Error.ListEnd)}</Text>
+                  <Text>{listEnd ?? ''}</Text>
                 </View>
               )
             )}
@@ -52,6 +49,8 @@ export interface ListFooterProps {
   isEnd?: boolean;
 
   style?: StyleProp<ViewStyle>;
+
+  listEnd?: string;
 }
 
 ListFooter.defaultProps = {

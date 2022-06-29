@@ -1,5 +1,3 @@
 {
-  "lang.error.listEmpty": "",
-  "lang.error.listError": "",
-  "lang.error.listEnd": ""
+  "Lang.Messenger.ConversationGroup.NameRequired": ""
 }

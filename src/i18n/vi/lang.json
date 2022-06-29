@@ -1,5 +1,3 @@
 {
-  "lang.error.listEmpty": "Không có dữ liệu",
-  "lang.error.listError": "Lấy dữ liệu bị lỗi",
-  "lang.error.listEnd": "Đã hết dữ liệu"
+  "Lang.Messenger.ConversationGroup.NameRequired": ""
 }

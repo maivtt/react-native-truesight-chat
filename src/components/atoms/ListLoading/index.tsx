@@ -3,9 +3,7 @@ import React from 'react';
 import nameof from 'ts-nameof.macro';
 import { LoadingStatus } from '../../../hooks/use-list';
 import { ActivityIndicator, Dimensions, Text, View } from 'react-native';
-import { useTranslation } from 'react-i18next';
 import { useThemeValue } from 'react-native-redux-theming';
-import { Lang } from '../../../lang';
 import TruesightChat from 'react-native-truesight-chat';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
@@ -13,8 +11,7 @@ const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
 export function ListLoading(
   props: PropsWithChildren<ListLoadingProps>
 ): ReactElement {
-  const { loading } = props;
-  const [translate] = useTranslation();
+  const { loading, listEmpty, listError } = props;
   const darkColor = useThemeValue('darkColor');
   const primaryColor = useThemeValue('primaryColor');
   const { atomicStyles } = TruesightChat;
@@ -43,7 +40,7 @@ export function ListLoading(
             { marginTop: SCREEN_HEIGHT / 4 },
           ]}
         >
-          <Text>{translate(Lang.Error.ListEmpty)}</Text>
+          <Text>{listEmpty ?? ''}</Text>
         </View>
       )}
       {loading === LoadingStatus.FAIL && (
@@ -53,7 +50,7 @@ export function ListLoading(
             { marginTop: SCREEN_HEIGHT / 4 },
           ]}
         >
-          <Text>{translate(Lang.Error.ListError)}</Text>
+          <Text>{listError ?? ''}</Text>
         </View>
       )}
     </>
@@ -64,6 +61,10 @@ export interface ListLoadingProps {
   loading: LoadingStatus;
 
   error?: string;
+
+  listEmpty?: string; //Show no data when get list
+
+  listError?: string; //Show error when get list
 }
 
 ListLoading.defaultProps = {

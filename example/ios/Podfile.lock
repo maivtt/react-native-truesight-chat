@@ -262,7 +262,7 @@ PODS:
     - React-Core
   - react-native-spinkit (1.4.1):
     - React
-  - react-native-truesight-chat (0.1.0-rc.6):
+  - react-native-truesight-chat (0.1.1-rc.1):
     - React-Core
   - React-RCTActionSheet (0.63.4):
     - React-Core/RCTActionSheetHeaders (= 0.63.4)
@@ -619,7 +619,7 @@ SPEC CHECKSUMS:
   react-native-pager-view: 95d0418c3c74279840abec6926653d32447bafb6
   react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
   react-native-spinkit: da294fd828216ad211fe36a5c14c1e09f09e62db
-  react-native-truesight-chat: 5a2c6b1d73b21992cef91990d88f204408703d81
+  react-native-truesight-chat: 3eb7433dafab0d3fec8ead43e0659660d2da6e04
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0

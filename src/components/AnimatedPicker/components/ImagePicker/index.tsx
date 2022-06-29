@@ -11,12 +11,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
-import TruesightChat from 'react-native-truesight-chat';
+import TruesightChat, {
+  ImagePickerResponse,
+} from 'react-native-truesight-chat';
 import SvgIcon from '../../../atoms/SvgIcon/SvgIcon';
 import TextLib from '../../../atoms/TextLib';
 import ImageItem from '../../../atoms/ImageItem';
-import type { ImagePickerResponse } from '../../../../types/ImagePickerResponse';
 import { useThemeValue } from 'react-native-redux-theming';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('screen');
@@ -34,9 +34,10 @@ export function ImagePicker(
     loadMoreImages,
     numberSelectedItem,
     onCapture,
+    takePhotoLabel,
+    sendImageLabel,
   } = props;
   const { atomicStyles } = TruesightChat;
-  const [translate] = useTranslation();
   const primaryColor = useThemeValue('primaryColor');
 
   const handlePressSendImage = React.useCallback(() => {
@@ -63,9 +64,10 @@ export function ImagePicker(
               ]}
               onPress={onCapture}
             >
-              <TextLib style={atomicStyles.mb2}>
-                {translate('Lang.Messenger.Conversation.Camera')}
-              </TextLib>
+              {takePhotoLabel && (
+                <TextLib style={atomicStyles.mb2}>{takePhotoLabel}</TextLib>
+              )}
+
               <SvgIcon
                 component={require('../../../../../assets/icons/camera.svg')}
               />
@@ -85,7 +87,7 @@ export function ImagePicker(
         </>
       );
     },
-    [atomicStyles, onCapture, onSelectHandle, selectItemsObject, translate]
+    [atomicStyles, onCapture, onSelectHandle, selectItemsObject, takePhotoLabel]
   );
 
   return (
@@ -115,11 +117,12 @@ export function ImagePicker(
             //{ bottom: bottom + 16 },
           ]}
         >
-          <TextLib style={[atomicStyles.textBold, { color: '#FFF' }]}>
-            {translate('Lang.Messenger.Conversation.SendImage', {
-              total: numberSelectedItem! > 1 ? numberSelectedItem : '',
-            })}
-          </TextLib>
+          {sendImageLabel && (
+            <TextLib style={[atomicStyles.textBold, { color: '#FFF' }]}>
+              {sendImageLabel +
+                (numberSelectedItem! > 1 ? numberSelectedItem : '')}
+            </TextLib>
+          )}
         </Pressable>
       )}
     </View>
@@ -154,6 +157,10 @@ export interface ImagePickerProps {
   numberSelectedItem?: number;
 
   onCapture?: () => void;
+
+  takePhotoLabel?: string;
+
+  sendImageLabel?: string;
 }
 
 ImagePicker.defaultProps = {

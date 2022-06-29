@@ -1,7 +1,6 @@
 import React from 'react';
 import type { FetchBlobResponse } from 'react-native-blob-util';
 import ReactNativeBlobUtil from 'react-native-blob-util';
-import { useTranslation } from 'react-i18next';
 import FileViewer from 'react-native-file-viewer';
 import type { ConversationAttachment } from 'src/models/ConversationAttachment';
 import { Platform } from 'react-native';
@@ -11,8 +10,6 @@ const PLATFORM_IS_ANDROID: boolean = Platform.OS === 'android';
 export function useDownloadFile(): [
   (file: ConversationAttachment | undefined) => () => void
 ] {
-  const [translate] = useTranslation();
-
   let dirs = ReactNativeBlobUtil?.fs?.dirs;
 
   const handlePrintOrder = React.useCallback(
@@ -36,10 +33,10 @@ export function useDownloadFile(): [
           })
             .fetch('GET', `${file?.url}`)
             .then((_res: any) => {
-              translate('Lang.Document.Download.Success');
+              console.log('Lang.Document.Download.Success');
             })
             .catch(() => {
-              translate('Lang.Document.Download.Failed');
+              console.log('Lang.Document.Download.Failed');
             });
         } else {
           ReactNativeBlobUtil.config({
@@ -63,19 +60,19 @@ export function useDownloadFile(): [
                 FileViewer.open(res.path(), {
                   showOpenWithDialog: true,
                 }).catch(() => {
-                  translate('Lang.Document.Download.Failed');
+                  console.log('Lang.Document.Download.Failed');
                 });
               }
             })
             .catch(() => {
-              translate('Lang.Document.Download.Failed');
+              console.log('Lang.Document.Download.Failed');
             });
         }
       } catch (e: any) {
-        translate('Lang.Document.Download.Failed');
+        console.log('Lang.Document.Download.Failed');
       }
     },
-    [dirs, translate]
+    [dirs]
   );
   return [handlePrintOrder];
 }
