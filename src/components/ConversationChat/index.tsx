@@ -9,9 +9,11 @@ import {
   Conversation,
   ConversationFooter,
   ConversationMessage,
+  ImagePickerResponse,
 } from 'react-native-truesight-chat';
 import ConversationMessageFlatList from '../ConversationMessageFlatList';
 import { conversationService } from '../../services';
+import Camera from '../Camera';
 
 export function ConversationChat(
   props: PropsWithChildren<ConversationChatProps>
@@ -47,7 +49,7 @@ export function ConversationChat(
     handleSelectedMessage,
     handleClearReplyMessage,
     handleEmoji,
-    ,
+    cameraVisible,
     handleChangeCameraVisible,
   ] = conversationService.useChat(
     conversation,
@@ -125,6 +127,18 @@ export function ConversationChat(
           />
         }
       />
+
+      {cameraVisible && (
+        <Camera
+          loading={typingLoading}
+          onCancel={handleChangeCameraVisible}
+          onSend={(img: ImagePickerResponse[]) => {
+            handleChooseImage(img);
+            handleChangeCameraVisible();
+            setAttachmentType(AttachmentType.None);
+          }}
+        />
+      )}
     </>
   );
 }
