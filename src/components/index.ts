@@ -8,6 +8,8 @@ import type { AnimatedPickerProps } from './AnimatedPicker';
 import AnimatedPicker from './AnimatedPicker';
 import type { ConversationChatProps } from './ConversationChat';
 import ConversationChat from './ConversationChat';
+import type { ConversationCreateLayoutProps } from './ConversationCreateLayout';
+import ConversationCreateLayout from './ConversationCreateLayout';
 
 export type {
   ConversationFlatListProps,
@@ -15,6 +17,7 @@ export type {
   ConversationFooterProps,
   AnimatedPickerProps,
   ConversationChatProps,
+  ConversationCreateLayoutProps,
 };
 export {
   ConversationFlatList,
@@ -22,4 +25,5 @@ export {
   ConversationFooter,
   AnimatedPicker,
   ConversationChat,
+  ConversationCreateLayout,
 };

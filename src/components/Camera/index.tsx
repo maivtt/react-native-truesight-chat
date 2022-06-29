@@ -1,6 +1,6 @@
+import type { PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
 import styles from './Camera.scss';
-import type { PropsWithChildren, ReactElement } from 'react';
 import nameof from 'ts-nameof.macro';
 import { RNCamera } from 'react-native-camera';
 import {
@@ -21,6 +21,7 @@ import TruesightChat, {
   ImagePickerResponse,
 } from 'react-native-truesight-chat';
 import { useThemeValue } from 'react-native-redux-theming';
+
 const PLATFORM_IS_ANDROID: boolean = Platform.OS === 'android';
 
 export function Camera(props: PropsWithChildren<CameraProps>): ReactElement {
