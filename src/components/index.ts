@@ -10,6 +10,10 @@ import type { ConversationChatProps } from './ConversationChat';
 import ConversationChat from './ConversationChat';
 import type { ConversationCreateLayoutProps } from './ConversationCreateLayout';
 import ConversationCreateLayout from './ConversationCreateLayout';
+import type { DetailItemViewProps } from './DetailItemView';
+import DetailItemView from './DetailItemView';
+import type { DetailOptionsProps } from './DetailOptions';
+import DetailOptions from './DetailOptions';
 
 export type {
   ConversationFlatListProps,
@@ -18,6 +22,8 @@ export type {
   AnimatedPickerProps,
   ConversationChatProps,
   ConversationCreateLayoutProps,
+  DetailItemViewProps,
+  DetailOptionsProps,
 };
 export {
   ConversationFlatList,
@@ -26,4 +32,6 @@ export {
   AnimatedPicker,
   ConversationChat,
   ConversationCreateLayout,
+  DetailItemView,
+  DetailOptions,
 };
