@@ -18,10 +18,14 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import SvgIcon from '../atoms/SvgIcon/SvgIcon';
 import TruesightChat, {
   ConversationMessage,
 } from 'react-native-truesight-chat';
+import { useThemeValue } from 'react-native-redux-theming';
+import MediaIcon from '../../icons/MediaIcon';
+import FolderIcon from '../../icons/FolderIcon';
+import EmojiIcon from '../../icons/EmojiIcon';
+import SendIcon from '../../icons/SendIcon';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('screen');
 const PLATFORM_IS_ANDROID: boolean = Platform.OS === 'android';
@@ -46,6 +50,7 @@ export function ConversationFooter(
   } = props;
   const { atomicStyles } = TruesightChat;
   const scrollPosition = useSharedValue(0);
+  const primaryColor = useThemeValue('primaryColor');
 
   const springStyles = useAnimatedStyle(() => {
     return {
@@ -89,13 +94,13 @@ export function ConversationFooter(
         <View style={styles.footer}>
           <Animated.View style={[styles.height, springButtonStyles]}>
             <TouchableOpacity onPress={onImage}>
-              <SvgIcon component={require('../../../assets/icons/media.svg')} />
+              <MediaIcon color={primaryColor} />
             </TouchableOpacity>
             <TouchableOpacity onPress={onDocument}>
-              <SvgIcon component={require('../../../assets/icons/file.svg')} />
+              <FolderIcon color={primaryColor} />
             </TouchableOpacity>
             <TouchableOpacity onPress={onEmoticons}>
-              <SvgIcon component={require('../../../assets/icons/icon.svg')} />
+              <EmojiIcon color={primaryColor} />
             </TouchableOpacity>
           </Animated.View>
           <Animated.View style={[styles.bg, inputStyle, springStyles]}>
@@ -126,7 +131,7 @@ export function ConversationFooter(
 
           <Animated.View style={[springStyles]}>
             <TouchableOpacity style={[styles.button]} onPress={handleSend}>
-              <SvgIcon component={require('../../../assets/icons/send.svg')} />
+              <SendIcon color={primaryColor} />
             </TouchableOpacity>
           </Animated.View>
         </View>
