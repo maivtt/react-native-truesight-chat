@@ -17,11 +17,12 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* TruesightChatExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TruesightChatExampleTests.m */; };
 		3C3D6D55AF9947EF82D55BA0 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CFD25C54CDCC4D0A854CA513 /* Quicksand-SemiBold.ttf */; };
-		4786491AD7D4CDBE550F5FBB /* libPods-TruesightChatExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F837C2CB6778E1E5DBAC20C7 /* libPods-TruesightChatExample.a */; };
 		47F949AC8AE84F87807BD707 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59F3A025E8EF40438B0EB0CC /* Quicksand-Light.ttf */; };
 		4EB8EDDD6F3643DA9F2A4CEA /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3AE4C3656C84C6EBC3D678B /* Quicksand-Bold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9FBDB0CD489444B59FE729BC /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 076CF36081D343AC85513993 /* Quicksand-Regular.ttf */; };
+		CEB74291B6DC1FDAB51A663D /* libPods-TruesightChatExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5B3DED0475E9911CDC2658 /* libPods-TruesightChatExample.a */; };
+		E770AA5D2872D8950075CDE7 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E770AA5C2872D8950075CDE7 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +61,6 @@
 		2D02E4901E0B4A5D006451C7 /* TruesightChatExample-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TruesightChatExample-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5F974499EF4A4EB0F3B79E /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		3E4E077E91F84DFCB29DB2E8 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		43FD360E9179B0FE61E7ACEA /* Pods-TruesightChatExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TruesightChatExample.release.xcconfig"; path = "Target Support Files/Pods-TruesightChatExample/Pods-TruesightChatExample.release.xcconfig"; sourceTree = "<group>"; };
 		4F90EB53A3C841E4BC2A8C09 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Medium.ttf"; path = "../assets/fonts/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		59F3A025E8EF40438B0EB0CC /* Quicksand-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Light.ttf"; path = "../assets/fonts/Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		675C60E56A0A43B38FDBE6D0 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -70,17 +70,20 @@
 		836BE5B2C2EE4E6B88455F19 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		A3B75D939D90476DB50809B2 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		A3D06010D507440EA6A858C4 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		A69E3C597892AAF32B6F0A92 /* Pods-TruesightChatExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TruesightChatExample.release.xcconfig"; path = "Target Support Files/Pods-TruesightChatExample/Pods-TruesightChatExample.release.xcconfig"; sourceTree = "<group>"; };
 		B45CBDD1AF184F4B929A4CFF /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		C2F4B7391DD44FDB943618EC /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		CFD25C54CDCC4D0A854CA513 /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-SemiBold.ttf"; path = "../assets/fonts/Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
 		D3AE4C3656C84C6EBC3D678B /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.ttf"; path = "../assets/fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		E412327AC3C84FD8BF63595D /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		E770AA5C2872D8950075CDE7 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		E77C8C8AADD7407CB226A4D8 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		E77EBE7828719AC1008D9552 /* TruesightChatExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TruesightChatExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		E903FA7307804FB5F0DF551F /* Pods-TruesightChatExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TruesightChatExample.debug.xcconfig"; path = "Target Support Files/Pods-TruesightChatExample/Pods-TruesightChatExample.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F4CD8673446940F093CB5DC9 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		F837C2CB6778E1E5DBAC20C7 /* libPods-TruesightChatExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TruesightChatExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFE962D9A2F80717A8B18061 /* Pods-TruesightChatExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TruesightChatExample.debug.xcconfig"; path = "Target Support Files/Pods-TruesightChatExample/Pods-TruesightChatExample.debug.xcconfig"; sourceTree = "<group>"; };
+		FE5B3DED0475E9911CDC2658 /* libPods-TruesightChatExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TruesightChatExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4786491AD7D4CDBE550F5FBB /* libPods-TruesightChatExample.a in Frameworks */,
+				CEB74291B6DC1FDAB51A663D /* libPods-TruesightChatExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +146,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				E77EBE7828719AC1008D9552 /* TruesightChatExample-Bridging-Header.h */,
+				E770AA5C2872D8950075CDE7 /* File.swift */,
 			);
 			name = TruesightChatExample;
 			sourceTree = "<group>";
@@ -152,7 +157,7 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				F837C2CB6778E1E5DBAC20C7 /* libPods-TruesightChatExample.a */,
+				FE5B3DED0475E9911CDC2658 /* libPods-TruesightChatExample.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -222,8 +227,8 @@
 		F1B297749403B906D218E429 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FFE962D9A2F80717A8B18061 /* Pods-TruesightChatExample.debug.xcconfig */,
-				43FD360E9179B0FE61E7ACEA /* Pods-TruesightChatExample.release.xcconfig */,
+				E903FA7307804FB5F0DF551F /* Pods-TruesightChatExample.debug.xcconfig */,
+				A69E3C597892AAF32B6F0A92 /* Pods-TruesightChatExample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -253,13 +258,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "TruesightChatExample" */;
 			buildPhases = (
-				631C121AA094E543942CFAC9 /* [CP] Check Pods Manifest.lock */,
+				1CFEFA6A364F3BBCC7FB9615 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				7B3A8D553EFE58AB82B9954B /* [CP] Copy Pods Resources */,
+				93EC25358C84EC98635C9A78 /* [CP] Embed Pods Frameworks */,
+				DF99FB1E46F158F69465C4FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -320,7 +326,8 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						DevelopmentTeam = 537V83MWQH;
+						LastSwiftMigration = 1340;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -408,21 +415,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		631C121AA094E543942CFAC9 /* [CP] Check Pods Manifest.lock */ = {
+		1CFEFA6A364F3BBCC7FB9615 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -444,7 +437,39 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7B3A8D553EFE58AB82B9954B /* [CP] Copy Pods Resources */ = {
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native Code And Images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		93EC25358C84EC98635C9A78 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TruesightChatExample/Pods-TruesightChatExample-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TruesightChatExample/Pods-TruesightChatExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF99FB1E46F158F69465C4FC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -548,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				E770AA5D2872D8950075CDE7 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +614,7 @@
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -610,6 +637,7 @@
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = TruesightChatExampleTests/Info.plist;
@@ -628,12 +656,14 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFE962D9A2F80717A8B18061 /* Pods-TruesightChatExample.debug.xcconfig */;
+			baseConfigurationReference = E903FA7307804FB5F0DF551F /* Pods-TruesightChatExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 537V83MWQH;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = TruesightChatExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -643,6 +673,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.reactnativetruesightchat;
 				PRODUCT_NAME = TruesightChatExample;
+				SWIFT_OBJC_BRIDGING_HEADER = "TruesightChatExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -651,11 +682,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43FD360E9179B0FE61E7ACEA /* Pods-TruesightChatExample.release.xcconfig */;
+			baseConfigurationReference = A69E3C597892AAF32B6F0A92 /* Pods-TruesightChatExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 537V83MWQH;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = TruesightChatExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -665,6 +698,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.reactnativetruesightchat;
 				PRODUCT_NAME = TruesightChatExample;
+				SWIFT_OBJC_BRIDGING_HEADER = "TruesightChatExample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
