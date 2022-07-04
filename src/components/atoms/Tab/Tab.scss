@@ -1,0 +1,16 @@
+/**
+ * Tab
+ * 2022-07-04 22:48:55
+ */
+.tab {
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.tabSelected {
+  background-color: #BFBFBF;
+}
