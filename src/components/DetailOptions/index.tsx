@@ -46,7 +46,7 @@ export function DetailOptions(
     >
       <View style={[styles.modal]}>
         <View style={[styles.border, modalStyle]}>
-          {options?.map((item: string, index: number) => {
+          {options?.map((item: any, index: number) => {
             return (
               <>
                 <TouchableOpacity
@@ -68,7 +68,7 @@ export function DetailOptions(
                       atomicStyles.textBlueColor,
                     ]}
                   >
-                    {item}
+                    {typeof item === 'string' ? item : item?.name}
                   </TextLib>
                 </TouchableOpacity>
                 {index < options.length - 1 && (
