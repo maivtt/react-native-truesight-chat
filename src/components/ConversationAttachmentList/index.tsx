@@ -1,6 +1,6 @@
 import type { PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
-import styles from './ConversationAttachment.scss';
+import styles from './ConversationAttachmentList.scss';
 import nameof from 'ts-nameof.macro';
 import {
   Dimensions,
@@ -10,15 +10,14 @@ import {
   ListRenderItemInfo,
   View,
 } from 'react-native';
-import { conversationService } from '../../services';
-import type {
+import TruesightChat, {
   Conversation,
   ConversationAttachment as ConversationAttachmentModel,
 } from 'react-native-truesight-chat';
-import TruesightChat from 'react-native-truesight-chat';
+import { conversationService } from '../../services';
 import moment from 'moment';
-import TextLib from '../atoms/TextLib';
 import { getDate } from '../../helper/string-helper';
+import TextLib from '../atoms/TextLib';
 import SvgIcon from '../atoms/SvgIcon/SvgIcon';
 import Tab from '../atoms/Tab';
 import ListLoading from '../atoms/ListLoading';
@@ -26,8 +25,8 @@ import ListFooter from '../atoms/ListFooter';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('screen');
 
-export function ConversationAttachment(
-  props: PropsWithChildren<ConversationAttachmentProps>
+export function ConversationAttachmentList(
+  props: PropsWithChildren<ConversationAttachmentListProps>
 ): ReactElement {
   const { conversation, listError, listEnd, listEmpty, leftLabel, rightLabel } =
     props;
@@ -166,7 +165,7 @@ export function ConversationAttachment(
   );
 }
 
-export interface ConversationAttachmentProps {
+export interface ConversationAttachmentListProps {
   conversation: Conversation;
 
   leftLabel: string;
@@ -180,11 +179,10 @@ export interface ConversationAttachmentProps {
   listEnd?: string;
 }
 
-ConversationAttachment.defaultProps = {
-  leftLabel: 'Images',
-  rightLabel: 'Files',
+ConversationAttachmentList.defaultProps = {
+  //
 };
 
-ConversationAttachment.displayName = nameof(ConversationAttachment);
+ConversationAttachmentList.displayName = nameof(ConversationAttachmentList);
 
-export default ConversationAttachment;
+export default ConversationAttachmentList;
