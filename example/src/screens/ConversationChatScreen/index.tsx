@@ -5,12 +5,13 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { ConversationChatScreenParams } from './ConversationChatScreenParams';
 import { GLOBAL_USER } from '../../app';
 import { ConversationChat } from 'react-native-truesight-chat';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
 import { newMessageSelector } from '../../selectors';
 import { conversationSlice } from '../../store/conversation';
 import store from '../../store';
+import { DetailScreen } from '../index';
 
 export function ConversationChatScreen(
   props: PropsWithChildren<ConversationChatScreenProps>
@@ -23,6 +24,16 @@ export function ConversationChatScreen(
 
   return (
     <SafeAreaView>
+      <TouchableOpacity
+        style={[{ marginRight: 8, padding: 8, backgroundColor: 'coral' }]}
+        onPress={() => {
+          navigation.navigate(DetailScreen.displayName!, {
+            conversation: conversation,
+          });
+        }}
+      >
+        <Text>GoTo Detail Conversation</Text>
+      </TouchableOpacity>
       <ConversationChat
         navigation={navigation}
         conversation={conversation}

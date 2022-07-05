@@ -8,7 +8,10 @@ import {
   Image,
   ListRenderItem,
   ListRenderItemInfo,
+  StyleProp,
+  TextStyle,
   View,
+  ViewStyle,
 } from 'react-native';
 import TruesightChat, {
   Conversation,
@@ -28,8 +31,19 @@ const { width: SCREEN_WIDTH } = Dimensions.get('screen');
 export function ConversationAttachmentList(
   props: PropsWithChildren<ConversationAttachmentListProps>
 ): ReactElement {
-  const { conversation, listError, listEnd, listEmpty, leftLabel, rightLabel } =
-    props;
+  const {
+    conversation,
+    listError,
+    listEnd,
+    listEmpty,
+    leftLabel,
+    rightLabel,
+    tabStyle,
+    labelContainerStyle,
+    labelStyle,
+    selectedStyle,
+    selectedContainerStyle,
+  } = props;
   const { atomicStyles } = TruesightChat;
 
   const [
@@ -105,10 +119,7 @@ export function ConversationAttachmentList(
               />
               <View style={atomicStyles.ml2}>
                 <TextLib
-                  style={[
-                    atomicStyles.textDark,
-                    { maxWidth: SCREEN_WIDTH - 120 },
-                  ]}
+                  style={[{ maxWidth: SCREEN_WIDTH - 120 }]}
                   numberOfLines={1}
                 >
                   {item?.name}
@@ -130,7 +141,11 @@ export function ConversationAttachmentList(
         tab={tab}
         onTab={handleChangeTab}
         label={[leftLabel, rightLabel]}
-        style={atomicStyles.pb2}
+        tabStyle={[atomicStyles.pb2, tabStyle]}
+        labelStyle={labelStyle}
+        labelContainerStyle={labelContainerStyle}
+        selectedStyle={selectedStyle}
+        selectedContainerStyle={selectedContainerStyle}
       />
       <FlatList
         key={tab === 0 ? '_' : '#'}
@@ -177,6 +192,16 @@ export interface ConversationAttachmentListProps {
   listError?: string;
 
   listEnd?: string;
+
+  tabStyle?: StyleProp<ViewStyle>;
+
+  labelContainerStyle?: StyleProp<ViewStyle>;
+
+  selectedContainerStyle?: StyleProp<ViewStyle>;
+
+  selectedStyle?: StyleProp<TextStyle>;
+
+  labelStyle?: StyleProp<TextStyle>;
 }
 
 ConversationAttachmentList.defaultProps = {

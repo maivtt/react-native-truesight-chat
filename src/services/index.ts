@@ -7,6 +7,7 @@ import { useListGlobalUser } from './use-list-global-user';
 import { useAttachment } from './use-attachment';
 import { useCreateConversation } from './use-create-conversation';
 import { useCreateGroupConversation } from './use-create-group-conversation';
+import { useMember } from './use-member';
 
 export class ConversationService {
   public readonly useListConversation = useListConversation;
@@ -26,6 +27,8 @@ export class ConversationService {
   public readonly useCreateConversation = useCreateConversation;
 
   public readonly useCreateGroupConversation = useCreateGroupConversation;
+
+  public readonly useMember = useMember;
 }
 
 export const conversationService: ConversationService =

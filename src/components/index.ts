@@ -16,6 +16,8 @@ import type { DetailOptionsProps } from './DetailOptions';
 import DetailOptions from './DetailOptions';
 import type { ConversationAttachmentListProps } from './ConversationAttachmentList';
 import ConversationAttachmentList from './ConversationAttachmentList';
+import type { ConversationMemberListProps } from './ConversationMemberList';
+import ConversationMemberList from './ConversationMemberList';
 
 export type {
   ConversationFlatListProps,
@@ -27,6 +29,7 @@ export type {
   DetailItemViewProps,
   DetailOptionsProps,
   ConversationAttachmentListProps,
+  ConversationMemberListProps,
 };
 export {
   ConversationFlatList,
@@ -38,4 +41,5 @@ export {
   DetailItemView,
   DetailOptions,
   ConversationAttachmentList,
+  ConversationMemberList,
 };

@@ -5,8 +5,8 @@ import { ConversationFlatList } from 'react-native-truesight-chat';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import {
   ConversationChatScreen,
+  ConversationCreateGroupScreen,
   ConversationCreateScreen,
-  DetailScreen,
 } from '../index';
 import { Text, TouchableOpacity, View } from 'react-native';
 
@@ -31,15 +31,14 @@ export function ConversationListScreen(
             {
               padding: 8,
               backgroundColor: 'darkseagreen',
-              flex: 1,
               alignItems: 'center',
             },
           ]}
           onPress={() => {
-            navigation.navigate(DetailScreen.displayName!);
+            navigation.navigate(ConversationCreateGroupScreen.displayName!);
           }}
         >
-          <Text>Detail Conversation</Text>
+          <Text>Create Group Conversation</Text>
         </TouchableOpacity>
       </View>
       <ConversationFlatList

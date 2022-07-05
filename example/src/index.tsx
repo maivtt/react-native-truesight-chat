@@ -22,22 +22,25 @@ enableScreens();
 TruesightChat.config({
   serverUrl: server.serverUrl,
   atomicStyles: atomicStyles,
+  // conversation
+  get: conversationRepository.get,
+  update: conversationRepository.update,
   listConversation: conversationRepository.list,
   countConversation: conversationRepository.count,
+  multiUploadFile: conversationRepository.multiUploadFile,
+  singleListGlobalUser: conversationRepository.singleListGlobalUser,
+  // conversation message
+  create: conversationMessageRepository.create,
   listConversationMessage: conversationMessageRepository.list,
   countConversationMessage: conversationMessageRepository.count,
   listConversationAttachment:
     conversationMessageRepository.listConversationAttachment,
   countConversationAttachment:
     conversationMessageRepository.countConversationAttachment,
-  multiUploadFile: conversationRepository.multiUploadFile,
-  create: conversationMessageRepository.create,
-  singleListGlobalUser: conversationRepository.singleListGlobalUser,
 });
 
 export default function App(): ReactElement {
   React.useEffect(() => {
-    TruesightChat.listConversation({}).subscribe();
     portalRepository.login().subscribe({
       next: async (value) => {
         await globalState.setToken(value.token);

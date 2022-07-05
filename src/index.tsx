@@ -39,7 +39,11 @@ interface TruesightChatOptions {
 
   singleListGlobalUser: typeof TruesightChat['singleListGlobalUser'];
 
+  get: typeof TruesightChat['get'];
+
   create: typeof TruesightChat['create'];
+
+  update?: typeof TruesightChat['update'];
 
   multiUploadFile: typeof TruesightChat['multiUploadFile'];
 }
@@ -77,7 +81,13 @@ class TruesightChat {
     globalUserFilter: GlobalUserFilter
   ) => Observable<GlobalUser[]>;
 
+  public static get: (id: number) => Observable<Conversation>;
+
   public static create: (
+    conversationMessage: ConversationMessage
+  ) => Observable<ConversationMessage>;
+
+  public static update: (
     conversation: Conversation
   ) => Observable<Conversation>;
 
@@ -126,6 +136,11 @@ class TruesightChat {
       this.singleListGlobalUser = options.singleListGlobalUser;
     } else {
       console.error('Missing single list global u∂ser');
+    }
+    if (options.get) {
+      this.get = options.get;
+    } else {
+      console.error('Missing get conversation');
     }
     if (options.create) {
       this.create = options.create;
