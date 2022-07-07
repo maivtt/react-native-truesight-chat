@@ -3,7 +3,7 @@ import React from 'react';
 import nameof from 'ts-nameof.macro';
 import styles from './ContentItem.scss';
 import type { StyleProp, ViewStyle } from 'react-native';
-import { Pressable, View } from 'react-native';
+import { Platform, Pressable, View } from 'react-native';
 import type { ConversationAttachment } from 'src/models/ConversationAttachment';
 import ImageView from 'react-native-image-viewing';
 import { useBoolean } from 'react3l-common';
@@ -18,7 +18,10 @@ import FileMessenger from './components/FileMessenger/FileMessenger';
 import Reply from './components/Reply/Reply';
 import { checkFile } from '../../../helper/file-helper';
 import TextLib from '../TextLib';
-import { useDownloadFile } from '../../../services/use-download-file';
+import ReactNativeBlobUtil, { FetchBlobResponse } from 'react-native-blob-util';
+import FileViewer from 'react-native-file-viewer';
+
+const PLATFORM_IS_ANDROID: boolean = Platform.OS === 'android';
 
 /**
  * File: ContentItem.tsx
@@ -42,7 +45,70 @@ const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
     'messageBackgroundOtherColor'
   );
 
-  const [handlePrintOrder] = useDownloadFile();
+  let dirs = ReactNativeBlobUtil?.fs?.dirs;
+
+  const handlePrintOrder = React.useCallback(
+    (file: ConversationAttachment | undefined) => () => {
+      if (!file) {
+        return;
+      }
+      try {
+        if (PLATFORM_IS_ANDROID) {
+          ReactNativeBlobUtil.config({
+            appendExt:
+              file?.name?.split('.')[file?.name?.split('.').length - 1],
+            fileCache: true,
+            overwrite: true,
+            addAndroidDownloads: {
+              title: file?.name,
+              useDownloadManager: true,
+              notification: true,
+              path: dirs.DownloadDir + '/' + file?.name,
+            },
+          })
+            .fetch('GET', `${file?.url}`)
+            .then((_res: any) => {
+              console.log('Lang.Document.Download.Success');
+            })
+            .catch(() => {
+              console.log('Lang.Document.Download.Failed');
+            });
+        } else {
+          ReactNativeBlobUtil.config({
+            appendExt:
+              file?.name?.split('.')[file?.name?.split('.').length - 1],
+            fileCache: true,
+            overwrite: true,
+            indicator: true,
+            path: `${dirs?.DocumentDir}/${file?.name}`,
+            IOSBackgroundTask: true,
+          })
+            .fetch('GET', `${file?.url}`)
+            .then(async (res: FetchBlobResponse) => {
+              // PushNotification.configure({});
+              // PushNotification.localNotification({
+              //   title: '',
+              //   message: translate(Lang.Document.Download.Success),
+              // });
+              const state = await ReactNativeBlobUtil.fs.exists(res.path());
+              if (state) {
+                FileViewer.open(res.path(), {
+                  showOpenWithDialog: true,
+                }).catch(() => {
+                  console.log('Lang.Document.Download.Failed');
+                });
+              }
+            })
+            .catch(() => {
+              console.log('Lang.Document.Download.Failed');
+            });
+        }
+      } catch (e: any) {
+        console.log('Lang.Document.Download.Failed');
+      }
+    },
+    [dirs]
+  );
 
   return (
     <>
