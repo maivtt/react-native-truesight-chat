@@ -12,8 +12,9 @@ import {
   ImagePickerResponse,
 } from 'react-native-truesight-chat';
 import ConversationMessageFlatList from '../ConversationMessageFlatList';
-import { conversationService } from '../../services';
 import Camera from '../Camera';
+import { useChat } from '../../services/use-chat';
+import { useImage } from '../../services/use-image';
 
 export function ConversationChat(
   props: PropsWithChildren<ConversationChatProps>
@@ -51,12 +52,7 @@ export function ConversationChat(
     handleEmoji,
     cameraVisible,
     handleChangeCameraVisible,
-  ] = conversationService.useChat(
-    conversation,
-    globalUser,
-    newMessage,
-    onRemoveMessage
-  );
+  ] = useChat(conversation, globalUser, newMessage, onRemoveMessage);
 
   const [
     images,
@@ -65,7 +61,7 @@ export function ConversationChat(
     reset,
     loadMoreImages,
     numberSelectedItem,
-  ] = conversationService.useImage(navigation);
+  ] = useImage(navigation);
 
   return (
     <>

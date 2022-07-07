@@ -2,7 +2,6 @@ import React from 'react';
 import { useBoolean, useSubscription } from 'react3l-common';
 import { finalize } from 'rxjs';
 import type { AxiosError } from 'axios';
-import type { ConversationService } from './index';
 import type {
   Conversation,
   ConversationMessage,
@@ -24,7 +23,6 @@ import { LoadingStatus, useList } from '../hooks/use-list';
 import { SearchField, SearchType } from '../types/Search';
 
 export function useChat(
-  this: ConversationService,
   conversation: Conversation,
   currentGlobalUser: GlobalUser,
   newMessage?: ConversationMessage,
@@ -92,10 +90,10 @@ export function useChat(
     }
   );
 
-  const handleChat = React.useCallback((content: string) => {
+  const handleChat = React.useCallback((value: string) => {
     dispatch({
       type: ConversationMessageReducerActionType.SetContent,
-      content: content,
+      content: value,
     });
   }, []);
 
@@ -141,19 +139,19 @@ export function useChat(
                 )
                 .subscribe({
                   next: () => {},
-                  error: (error: AxiosError) => {
+                  error: (axiosError: AxiosError) => {
                     console.log(
-                      'Không thể gửi tin nhắn ' + error?.response?.status
+                      'Không thể gửi tin nhắn ' + axiosError?.response?.status
                     );
                   },
                 });
             }
           },
-          error: (error: AxiosError) => {
+          error: (axiosError: AxiosError) => {
             dispatch({
               type: ConversationMessageReducerActionType.TurnOffLoading,
             });
-            console.log('Không thể gửi ảnh ' + error?.response?.status);
+            console.log('Không thể gửi ảnh ' + axiosError?.response?.status);
           },
         })
       );
@@ -185,14 +183,17 @@ export function useChat(
           )
           .subscribe({
             next: () => {},
-            error: (error: AxiosError<Conversation>) => {
-              if (error.response?.status === 400 && error.response?.data) {
-                const e = error.response.data.errors;
+            error: (axiosError: AxiosError<Conversation>) => {
+              if (
+                axiosError.response?.status === 400 &&
+                axiosError.response?.data
+              ) {
+                const e = axiosError.response.data.errors;
                 if (e) {
                   console.log(e.toString());
                 }
               }
-              console.log(error);
+              console.log(axiosError);
             },
           })
       );
