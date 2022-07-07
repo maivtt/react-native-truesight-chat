@@ -16,11 +16,11 @@ import TruesightChat, {
   ConversationParticipant,
 } from 'react-native-truesight-chat';
 import Avatar from '../atoms/Avatar';
-import { conversationService } from '../../services';
 import TextLib from '../atoms/TextLib';
 import SvgIcon from '../atoms/SvgIcon/SvgIcon';
 import { useThemeValue } from 'react-native-redux-theming';
 import Tab from '../atoms/Tab';
+import { useMember } from '../../services/use-member';
 
 export function ConversationMemberList(
   props: PropsWithChildren<ConversationMemberListProps>
@@ -47,7 +47,7 @@ export function ConversationMemberList(
     error,
     tab,
     handleChangeTab,
-  ] = conversationService.useMember(conversation, navigation);
+  ] = useMember(conversation, navigation);
 
   const renderItem: ListRenderItem<ConversationParticipant> = React.useCallback(
     ({ item, index }: ListRenderItemInfo<ConversationParticipant>) => {

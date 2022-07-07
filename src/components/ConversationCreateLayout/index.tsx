@@ -17,10 +17,10 @@ import TruesightChat, {
   GlobalUser,
   TruesightThemeExtension,
 } from 'react-native-truesight-chat';
-import { conversationService } from '../../services';
 import SvgIcon from '../atoms/SvgIcon/SvgIcon';
 import TextLib from '../atoms/TextLib';
 import { useThemeValue } from 'react-native-redux-theming';
+import { useListGlobalUser } from '../../services/use-list-global-user';
 
 export function ConversationCreateLayout(
   props: PropsWithChildren<ConversationCreateLayoutProps>
@@ -48,7 +48,7 @@ export function ConversationCreateLayout(
   );
 
   const [list, loading, search, error, handleSearch, handleRefresh] =
-    conversationService.useListGlobalUser(currentGlobalUser);
+    useListGlobalUser(currentGlobalUser);
 
   const handlePressItem = React.useCallback(
     (globalUser: GlobalUser) => () => {

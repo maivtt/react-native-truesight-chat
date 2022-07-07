@@ -18,7 +18,7 @@ import FileMessenger from './components/FileMessenger/FileMessenger';
 import Reply from './components/Reply/Reply';
 import { checkFile } from '../../../helper/file-helper';
 import TextLib from '../TextLib';
-import { conversationService } from '../../../services';
+import { useDownloadFile } from '../../../services/use-download-file';
 
 /**
  * File: ContentItem.tsx
@@ -42,7 +42,7 @@ const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
     'messageBackgroundOtherColor'
   );
 
-  const [handlePrintOrder] = conversationService.useDownloadFile();
+  const [handlePrintOrder] = useDownloadFile();
 
   return (
     <>

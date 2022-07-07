@@ -2,7 +2,6 @@ import React from 'react';
 import { useSubscription } from 'react3l-common';
 import { finalize } from 'rxjs';
 import type { AxiosError } from 'axios';
-import type { ConversationService } from './index';
 import TruesightChat, { Conversation } from 'react-native-truesight-chat';
 import type { ConversationMemberReducer } from '../reducers/conversation-member-reducer';
 import {
@@ -11,7 +10,6 @@ import {
 } from '../reducers/conversation-member-reducer';
 
 export function useMember(
-  this: ConversationService,
   currentConversation: Conversation,
   navigation: any
 ): [

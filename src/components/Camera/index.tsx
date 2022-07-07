@@ -12,7 +12,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { conversationService } from '../../services';
 import { getImageNameByUri } from '../../helper/file-helper';
 import SvgIcon from '../atoms/SvgIcon/SvgIcon';
 import TextLib from '../atoms/TextLib';
@@ -20,6 +19,7 @@ import TruesightChat, {
   ImagePickerResponse,
 } from 'react-native-truesight-chat';
 import { useThemeValue } from 'react-native-redux-theming';
+import { useCamera } from '../../services/use-camera';
 
 const PLATFORM_IS_ANDROID: boolean = Platform.OS === 'android';
 
@@ -35,7 +35,7 @@ export function Camera(props: PropsWithChildren<CameraProps>): ReactElement {
     currentImage,
     handleClearPhoto,
     handleCapture,
-  ] = conversationService.useCamera();
+  ] = useCamera();
 
   const handleSend = React.useCallback(() => {
     if (currentImage && onSend) {

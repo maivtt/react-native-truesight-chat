@@ -17,7 +17,6 @@ import TruesightChat, {
   Conversation,
   ConversationAttachment as ConversationAttachmentModel,
 } from 'react-native-truesight-chat';
-import { conversationService } from '../../services';
 import moment from 'moment';
 import { getDate } from '../../helper/string-helper';
 import TextLib from '../atoms/TextLib';
@@ -25,6 +24,7 @@ import SvgIcon from '../atoms/SvgIcon/SvgIcon';
 import Tab from '../atoms/Tab';
 import ListLoading from '../atoms/ListLoading';
 import ListFooter from '../atoms/ListFooter';
+import { useAttachment } from '../../services/use-attachment';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('screen');
 
@@ -54,7 +54,7 @@ export function ConversationAttachmentList(
     handleRefresh,
     tab,
     handleChangeTab,
-  ] = conversationService.useAttachment(conversation);
+  ] = useAttachment(conversation);
 
   let arr: any[] = [];
 
