@@ -10,7 +10,6 @@ export function TextLib(props: PropsWithChildren<TextLibProps>): ReactElement {
   const { children, style, ...resProps } = props;
   const { atomicStyles } = TruesightChat;
   const messageTextPrimaryColor = useThemeValue<TruesightThemeExtension>(
-    // @ts-ignore
     'messageTextPrimaryColor'
   );
 

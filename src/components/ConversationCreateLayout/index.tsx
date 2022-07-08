@@ -43,7 +43,6 @@ export function ConversationCreateLayout(
   } = props;
   const { atomicStyles } = TruesightChat;
   const messageTextPrimaryColor = useThemeValue<TruesightThemeExtension>(
-    // @ts-ignore
     'messageTextPrimaryColor'
   );
 

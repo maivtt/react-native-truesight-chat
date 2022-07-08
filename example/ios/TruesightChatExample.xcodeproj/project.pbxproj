@@ -40,6 +40,13 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "TruesightChatExample-tvOS";
 		};
+		872977342876EBF200DA07AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 872977302876EBF200DA07AF /* TruesightChat.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = TruesightChat;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +75,7 @@
 		7BF03F72D32747468B45F635 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TruesightChatExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		836BE5B2C2EE4E6B88455F19 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		872977302876EBF200DA07AF /* TruesightChat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TruesightChat.xcodeproj; path = ../../ios/TruesightChat.xcodeproj; sourceTree = "<group>"; };
 		A3B75D939D90476DB50809B2 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		A3D06010D507440EA6A858C4 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		A69E3C597892AAF32B6F0A92 /* Pods-TruesightChatExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TruesightChatExample.release.xcconfig"; path = "Target Support Files/Pods-TruesightChatExample/Pods-TruesightChatExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +147,7 @@
 		13B07FAE1A68108700A75B9A /* TruesightChatExample */ = {
 			isa = PBXGroup;
 			children = (
+				872977302876EBF200DA07AF /* TruesightChat.xcodeproj */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -220,6 +229,14 @@
 				00E356EE1AD99517003FC87E /* TruesightChatExampleTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* TruesightChatExample-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* TruesightChatExample-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		872977312876EBF200DA07AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				872977352876EBF200DA07AF /* libTruesightChat.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -351,6 +368,12 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 872977312876EBF200DA07AF /* Products */;
+					ProjectRef = 872977302876EBF200DA07AF /* TruesightChat.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* TruesightChatExample */,
@@ -360,6 +383,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		872977352876EBF200DA07AF /* libTruesightChat.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTruesightChat.a;
+			remoteRef = 872977342876EBF200DA07AF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {

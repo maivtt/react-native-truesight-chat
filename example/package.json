@@ -9,7 +9,14 @@
     "start": "react-native start",
     "fresh-start": "yarn start --reset-cache",
     "extract": "i18next-extractor -i a/ -o a/i18n/ -p a/i18n/ extract",
-    "merge": "i18next-extractor -i a/ -o a/i18n/ -p a/i18n/ merge"
+    "merge": "i18next-extractor -i a/ -o a/i18n/ -p a/i18n/ merge",
+    "install-all": "yarn install && yarn pod",
+    "pod": "cd ios && pod install && cd ..",
+    "clean": "yarn clean-ios && yarn clean-android && yarn clean-node && watchman watch-del-all && rm -rf /tmp/metro-*",
+    "clean-android": "rm -rf android/.gradle android/.idea android/build android/app/build",
+    "clean-ios": "cd ios && pod deintegrate && cd .. && pod cache clean --all && rm -rf ios/build ios/Podfile.lock",
+    "clean-node": "rm -rf node_modules yarn.lock",
+    "clean-npm": "npm cache clean --force"
   },
   "dependencies": {
     "@microsoft/signalr": "^6.0.6",

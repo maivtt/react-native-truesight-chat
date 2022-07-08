@@ -19,7 +19,7 @@ import Reply from './components/Reply/Reply';
 import { checkFile } from '../../../helper/file-helper';
 import TextLib from '../TextLib';
 import ReactNativeBlobUtil, { FetchBlobResponse } from 'react-native-blob-util';
-import FileViewer from 'react-native-file-viewer';
+// import FileViewer from 'react-native-file-viewer';
 
 const PLATFORM_IS_ANDROID: boolean = Platform.OS === 'android';
 
@@ -37,11 +37,9 @@ const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
   const primaryColor = useThemeValue('primaryColor');
 
   const messageBackgroundColor = useThemeValue<TruesightThemeExtension>(
-    // @ts-ignore
     'messageBackgroundColor'
   );
   const messageBackgroundOtherColor = useThemeValue<TruesightThemeExtension>(
-    // @ts-ignore
     'messageBackgroundOtherColor'
   );
 
@@ -92,11 +90,11 @@ const ContentItem: FC<PropsWithChildren<ContentItemProps>> = (
               // });
               const state = await ReactNativeBlobUtil.fs.exists(res.path());
               if (state) {
-                FileViewer.open(res.path(), {
-                  showOpenWithDialog: true,
-                }).catch(() => {
-                  console.log('Lang.Document.Download.Failed');
-                });
+                // FileViewer.open(res.path(), {
+                //   showOpenWithDialog: true,
+                // }).catch(() => {
+                //   console.log('Lang.Document.Download.Failed');
+                // });
               }
             })
             .catch(() => {

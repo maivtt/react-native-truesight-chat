@@ -32,7 +32,6 @@ export function DetailItemView(
   } = props;
   const { atomicStyles } = TruesightChat;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
-    // @ts-ignore
     'messageTextSecondaryColor'
   );
 

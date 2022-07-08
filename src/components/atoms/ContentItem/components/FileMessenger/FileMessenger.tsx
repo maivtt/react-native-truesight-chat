@@ -25,11 +25,9 @@ const FileMessenger: FC<PropsWithChildren<FileMessengerProps>> = (
     props;
   const { atomicStyles } = TruesightChat;
   const messageBackgroundColor = useThemeValue<TruesightThemeExtension>(
-    // @ts-ignore
     'messageBackgroundColor'
   );
   const messageBackgroundOtherColor = useThemeValue<TruesightThemeExtension>(
-    // @ts-ignore
     'messageBackgroundOtherColor'
   );
 

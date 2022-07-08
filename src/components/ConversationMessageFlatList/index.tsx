@@ -42,7 +42,6 @@ export function ConversationMessageFlatList(
   } = props;
   const { atomicStyles } = TruesightChat;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
-    // @ts-ignore
     'messageTextSecondaryColor'
   );
   const primaryColor = useThemeValue('primaryColor');

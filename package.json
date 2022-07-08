@@ -1,6 +1,6 @@
 {
   "name": "react-native-truesight-chat",
-  "version": "0.1.2-rc.12",
+  "version": "0.1.2-rc.14",
   "description": "react native truesight app chat",
   "main": "src/index",
   "types": "lib/typescript/index.d.ts",
@@ -190,7 +190,7 @@
     "react-native-permissions": "^3.3.1",
     "react-native-push-notification": "^8.1.1",
     "react-native-reanimated": "2.4.1",
-    "react-native-redux-theming": "^0.1.7",
+    "react-native-redux-theming": "^0.1.8",
     "react-native-spinkit": "^1.5.1",
     "react-native-svg": "^12.3.0",
     "react-native-tab-view": "^3.1.1",

@@ -36,7 +36,6 @@ const MessageItem: FC<PropsWithChildren<MessageItemProps>> = (
     props;
   const { atomicStyles } = TruesightChat;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
-    // @ts-ignore
     'messageTextSecondaryColor'
   );
 
