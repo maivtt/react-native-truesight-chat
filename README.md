@@ -12,6 +12,27 @@ or
 yarn add react-native-truesight-chat
 ```
 
+```sh
+yarn add react-native-permission react-native-spinkit @react-native-community/cameraroll react-native-blob-util react-native-reanimated@2.4.1
+```
+
+`react-native-permission`
+- Camera
+- PhotoLibrary
+- PhotoLibraryAddOnly
+- MediaLibrary
+- Notifications
+
+`react-native.config.ts`
+```sh
+    'react-native-truesight-chat': {
+          platforms: {
+            android: null,
+            ios: null,
+          },
+    },
+```
+
 ## Usage
 Define a config TruesightChat with following properies as such:
 
