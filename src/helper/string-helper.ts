@@ -4,7 +4,8 @@ import type {
 } from 'react-native-truesight-chat';
 
 export function getConversationName(
-  conversation: Conversation
+  conversation: Conversation,
+  globalUser?: any
 ): string | undefined {
   if (conversation) {
     if (conversation?.name) {
@@ -20,7 +21,7 @@ export function getConversationName(
       }
       if (conversation?.conversationParticipants?.length === 2) {
         const [other] = conversation.conversationParticipants?.filter(
-          (e) => e.globalUserId !== 123
+          (e) => e.globalUserId !== globalUser?.id
         );
         if (other) {
           return other?.globalUser?.displayName;

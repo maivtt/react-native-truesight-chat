@@ -20,7 +20,7 @@ import {
 } from 'react-native';
 import ListLoading from '../atoms/ListLoading';
 import ListFooter from '../atoms/ListFooter';
-import Avatar from '../atoms/Avatar';
+import Avatar, { AvatarProps } from '../atoms/Avatar';
 import { getConversationName } from '../../helper/string-helper';
 import SvgIcon from '../atoms/SvgIcon/SvgIcon';
 import { conversationFlatListStyles } from './ConversationFlatList.styles';
@@ -45,6 +45,8 @@ export function ConversationFlatList(
     listEmpty,
     listError,
     listEnd,
+    globalUser,
+    ...resProps
   } = props;
 
   const { atomicStyles } = TruesightChat;
@@ -73,7 +75,11 @@ export function ConversationFlatList(
         >
           {avatar && (
             <View style={[avatarContainerStyle]}>
-              <Avatar radius={avatarRadius ?? 50} source={item?.avatar} />
+              <Avatar
+                avatarRadius={avatarRadius ?? 50}
+                avatarSource={item?.avatar}
+                {...resProps}
+              />
             </View>
           )}
 
@@ -97,7 +103,7 @@ export function ConversationFlatList(
               ]}
               numberOfLines={1}
             >
-              {getConversationName(item)}
+              {getConversationName(item, globalUser)}
             </Text>
             <View style={[atomicStyles.flexRowBetween]}>
               <Text
@@ -148,8 +154,10 @@ export function ConversationFlatList(
       avatarRadius,
       containerStyle,
       contentContainerStyle,
+      globalUser,
       navigation,
       newConversationLatestContent,
+      resProps,
       target,
       textDescriptionStyle,
       textLabelStyle,
@@ -189,7 +197,7 @@ export function ConversationFlatList(
   );
 }
 
-export interface ConversationFlatListProps {
+export interface ConversationFlatListProps extends AvatarProps {
   renderItem?: ListRenderItem<Conversation>;
 
   style?: StyleProp<ViewStyle>;
@@ -214,7 +222,7 @@ export interface ConversationFlatListProps {
 
   avatar?: boolean;
 
-  avatarRadius?: number;
+  globalUser?: any;
 
   newConversationLatestContent?: string;
 

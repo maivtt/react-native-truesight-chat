@@ -9,6 +9,7 @@ import {
   ConversationCreateScreen,
 } from '../index';
 import { Text, TouchableOpacity, View } from 'react-native';
+import { GLOBAL_USER } from '../../app';
 
 export function ConversationListScreen(
   props: PropsWithChildren<ConversationListScreenProps>
@@ -43,6 +44,7 @@ export function ConversationListScreen(
       </View>
       <ConversationFlatList
         navigation={navigation}
+        globalUser={GLOBAL_USER}
         target={ConversationChatScreen.displayName!}
       />
     </>

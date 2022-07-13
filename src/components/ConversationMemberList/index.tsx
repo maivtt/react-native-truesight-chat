@@ -15,7 +15,7 @@ import TruesightChat, {
   Conversation,
   ConversationParticipant,
 } from 'react-native-truesight-chat';
-import Avatar from '../atoms/Avatar';
+import Avatar, { AvatarProps } from '../atoms/Avatar';
 import TextLib from '../atoms/TextLib';
 import SvgIcon from '../atoms/SvgIcon/SvgIcon';
 import { useThemeValue } from 'react-native-redux-theming';
@@ -36,6 +36,7 @@ export function ConversationMemberList(
     labelContainerStyle,
     selectedStyle,
     selectedContainerStyle,
+    ...resProps
   } = props;
   const { atomicStyles } = TruesightChat;
   const dangerColor = useThemeValue('dangerColor');
@@ -65,7 +66,11 @@ export function ConversationMemberList(
             }
           }}
         >
-          <Avatar radius={40} source={item?.globalUser?.avatar} />
+          <Avatar
+            avatarRadius={40}
+            avatarSource={item?.globalUser?.avatar}
+            {...resProps}
+          />
           <TextLib
             style={[atomicStyles.ml4, atomicStyles.medium]}
             numberOfLines={1}
@@ -75,7 +80,7 @@ export function ConversationMemberList(
         </TouchableOpacity>
       );
     },
-    [atomicStyles, onConversationParticipant]
+    [atomicStyles, onConversationParticipant, resProps]
   );
 
   return (
@@ -132,7 +137,10 @@ export function ConversationMemberList(
             listStyle,
           ]}
         >
-          <Avatar radius={40} source={conversationDetail.creator?.avatar} />
+          <Avatar
+            avatarRadius={40}
+            avatarSource={conversationDetail.creator?.avatar}
+          />
           <TextLib
             style={[atomicStyles.ml4, atomicStyles.medium]}
             numberOfLines={1}
@@ -145,7 +153,7 @@ export function ConversationMemberList(
   );
 }
 
-export interface ConversationMemberListProps {
+export interface ConversationMemberListProps extends AvatarProps {
   navigation: any;
 
   conversation: Conversation;
