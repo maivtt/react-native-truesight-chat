@@ -2,7 +2,7 @@ import type { PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
 import nameof from 'ts-nameof.macro';
 import type { StyleProp, ViewStyle } from 'react-native';
-import { Keyboard } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import {
   AnimatedPicker,
   AttachmentType,
@@ -15,6 +15,7 @@ import ConversationMessageFlatList from '../ConversationMessageFlatList';
 import Camera from '../Camera';
 import { useChat } from '../../services/use-chat';
 import { useImage } from '../../services/use-image';
+import styles from './ConversationChat.scss';
 
 export function ConversationChat(
   props: PropsWithChildren<ConversationChatProps>
@@ -27,6 +28,7 @@ export function ConversationChat(
     conversationListStyle,
     newMessage,
     onRemoveMessage,
+    style,
   } = props;
   const [attachmentType, setAttachmentType] = React.useState(
     AttachmentType.None
@@ -64,7 +66,7 @@ export function ConversationChat(
   ] = useImage(navigation);
 
   return (
-    <>
+    <View style={[styles.container, style]}>
       <ConversationMessageFlatList
         list={conversationMessages}
         total={conversationMessageTotal}
@@ -75,7 +77,11 @@ export function ConversationChat(
         onSwipe={handleSelectedMessage}
         typingLoading={typingLoading}
         error={error}
-        style={[conversationListStyle]}
+        style={[
+          styles.listStyles,
+          reMessage ? styles.marginWithReply : styles.marginWithoutReply,
+          conversationListStyle,
+        ]}
       />
 
       <ConversationFooter
@@ -104,7 +110,7 @@ export function ConversationChat(
         }}
         reply={reMessage}
         onReply={handleClearReplyMessage}
-        style={conversationFooterStyle}
+        style={[styles.footer, conversationFooterStyle]}
         footer={
           <AnimatedPicker
             type={attachmentType}
@@ -135,7 +141,7 @@ export function ConversationChat(
           }}
         />
       )}
-    </>
+    </View>
   );
 }
 

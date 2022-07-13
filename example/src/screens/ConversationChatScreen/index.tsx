@@ -6,7 +6,6 @@ import type { ConversationChatScreenParams } from './ConversationChatScreenParam
 import { GLOBAL_USER } from '../../app';
 import { ConversationChat } from 'react-native-truesight-chat';
 import { SafeAreaView, Text, TouchableOpacity } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
 import { newMessageSelector } from '../../selectors';
 import { conversationSlice } from '../../store/conversation';
@@ -18,14 +17,13 @@ export function ConversationChatScreen(
 ): ReactElement {
   const { navigation, route } = props;
   const { conversation } = route.params;
-  const { bottom } = useSafeAreaInsets();
 
   const newMessage = useSelector(newMessageSelector);
 
   return (
     <SafeAreaView>
       <TouchableOpacity
-        style={[{ marginRight: 8, padding: 8, backgroundColor: 'coral' }]}
+        style={[{ padding: 8, backgroundColor: 'coral' }]}
         onPress={() => {
           navigation.navigate(DetailScreen.displayName!, {
             conversation: conversation,
@@ -38,7 +36,7 @@ export function ConversationChatScreen(
         navigation={navigation}
         conversation={conversation}
         globalUser={GLOBAL_USER}
-        conversationFooterStyle={[{ bottom: bottom }]}
+        style={[{ marginBottom: -100 }]}
         newMessage={newMessage}
         onRemoveMessage={() => {
           store.dispatch(conversationSlice.actions.removeMessage());

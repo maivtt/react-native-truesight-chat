@@ -11,7 +11,7 @@ export class PortalRepository extends Repository {
   constructor() {
     super(httpConfig);
     server.subscribeServerUrl((serverUrl: string) => {
-      this.baseURL = new URL('/rpc/portal/account/', serverUrl).href;
+      this.baseURL = new URL('/rpc/portal/profile/', serverUrl).href;
     });
   }
 
