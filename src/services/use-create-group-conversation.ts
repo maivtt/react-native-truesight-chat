@@ -64,7 +64,7 @@ export function useCreateGroupConversation(
         type: ConversationReducerActionType.SetError,
         error: 'Lang.Messenger.ConversationGroup.NameRequired',
       });
-      return;
+      return null;
     }
     dispatch({ type: ConversationReducerActionType.TurnOnLoading });
     const participants: ConversationParticipant[] =

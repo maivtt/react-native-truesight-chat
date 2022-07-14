@@ -108,7 +108,7 @@ export function ConversationFooter(
               <TextInput
                 style={[
                   styles.inputStyle,
-                  PLATFORM_IS_IOS && atomicStyles.mb4,
+                  PLATFORM_IS_IOS && atomicStyles.mb5,
                   PLATFORM_IS_ANDROID && atomicStyles.mb2,
                   atomicStyles.text,
                 ]}

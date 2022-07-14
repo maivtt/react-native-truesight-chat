@@ -15,12 +15,7 @@ export function TextLib(props: PropsWithChildren<TextLibProps>): ReactElement {
 
   return (
     <Text
-      style={[
-        { color: messageTextPrimaryColor as string },
-        atomicStyles.sub2,
-        atomicStyles.text,
-        style,
-      ]}
+      style={[{ color: messageTextPrimaryColor }, atomicStyles.text, style]}
       {...resProps}
     >
       {children}

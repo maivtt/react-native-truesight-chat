@@ -41,7 +41,7 @@
     "sourceMap": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "strictPropertyInitialization": false,
     "types": [
       "jest",

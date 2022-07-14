@@ -1,7 +1,7 @@
 import type { FC, PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
 import nameof from 'ts-nameof.macro';
-import { Image, View } from 'react-native';
+import { Image, StyleProp, StyleSheet, TextStyle, View } from 'react-native';
 import type { ConversationMessage } from 'src/models/ConversationMessage';
 import styles from './MessageItem.scss';
 import { useBoolean } from 'react3l-common';
@@ -32,8 +32,14 @@ import TruesightChat from 'react-native-truesight-chat';
 const MessageItem: FC<PropsWithChildren<MessageItemProps>> = (
   props: PropsWithChildren<MessageItemProps>
 ): ReactElement => {
-  const { conversationMessage, consecutive, onSwipe, header, globalUser } =
-    props;
+  const {
+    conversationMessage,
+    consecutive,
+    onSwipe,
+    header,
+    globalUser,
+    dateStyle,
+  } = props;
   const { atomicStyles } = TruesightChat;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
     'messageTextSecondaryColor'
@@ -159,8 +165,10 @@ const MessageItem: FC<PropsWithChildren<MessageItemProps>> = (
             atomicStyles.textCenter,
             atomicStyles.mt4,
             atomicStyles.mb2,
-            atomicStyles.sub3,
+            atomicStyles.text,
+            messageItemStyles.font12,
             { color: messageTextSecondaryColor },
+            dateStyle,
           ]}
         >
           {moment(conversationMessage?.createdAt).format('LLL')}
@@ -181,7 +189,15 @@ export interface MessageItemProps {
   onSwipe?: (conversationMessage: ConversationMessage) => void;
 
   header?: ReactElement;
+
+  dateStyle?: StyleProp<TextStyle>;
 }
+
+const messageItemStyles = StyleSheet.create({
+  font12: {
+    fontSize: 12,
+  },
+});
 
 MessageItem.defaultProps = {
   //

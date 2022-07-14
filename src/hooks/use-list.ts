@@ -267,21 +267,20 @@ export function useList<
 
   React.useEffect(() => {
     const subscription: Subscription = handleLoadList().subscribe({
-      next: ([list, total]: [T[], number]) => {
+      next: ([_list, _total]: [T[], number]) => {
         dispatch({
           type: Action.loadingSuccess,
         });
         dispatch({
           type: Action.setList,
-          list,
-          total,
+          list: _list,
+          total: _total,
         });
       },
       error: () => {
         dispatch({
           type: Action.loadingFail,
         });
-        console.log('Server error!');
       },
     });
     dispatch({
@@ -307,7 +306,9 @@ export function useList<
       arrayList.length < total! &&
       arrayList.length >= (take ?? DEFAULT_TAKE) &&
       total! > 0 &&
-      loading !== LoadingStatus.PROGRESSING
+      loading !== LoadingStatus.PROGRESSING &&
+      getList &&
+      getCount
     ) {
       dispatch({
         type: Action.loadingProcess,
@@ -317,7 +318,7 @@ export function useList<
         take: take,
       });
     }
-  }, [arrayList.length, loading, take, total]);
+  }, [arrayList.length, getCount, getList, loading, take, total]);
 
   const handleSearch = React.useCallback(
     (searchValue: string) => {

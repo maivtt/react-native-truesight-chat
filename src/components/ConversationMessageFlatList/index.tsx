@@ -11,6 +11,8 @@ import {
   ListRenderItem,
   ListRenderItemInfo,
   StyleProp,
+  StyleSheet,
+  TextStyle,
   View,
   ViewStyle,
 } from 'react-native';
@@ -39,6 +41,7 @@ export function ConversationMessageFlatList(
     typingLoading,
     error,
     listEnd,
+    dateStyle,
   } = props;
   const { atomicStyles } = TruesightChat;
   const messageTextSecondaryColor = useThemeValue<TruesightThemeExtension>(
@@ -58,6 +61,7 @@ export function ConversationMessageFlatList(
             index !== 0 && list[index - 1]?.globalUserId === item?.globalUserId
           }
           onSwipe={onSwipe}
+          dateStyle={dateStyle}
           header={
             index === total ||
             moment(getDate(item?.createdAt)).diff(
@@ -73,8 +77,10 @@ export function ConversationMessageFlatList(
               >
                 <TextLib
                   style={[
-                    atomicStyles.sub3,
+                    atomicStyles.text,
+                    conversationMessageFlatListStyles.font12,
                     { color: messageTextSecondaryColor },
+                    dateStyle,
                   ]}
                 >
                   {moment(item?.createdAt).calendar()}
@@ -85,7 +91,15 @@ export function ConversationMessageFlatList(
         />
       );
     },
-    [atomicStyles, globalUser, list, messageTextSecondaryColor, onSwipe, total]
+    [
+      atomicStyles,
+      dateStyle,
+      globalUser,
+      list,
+      messageTextSecondaryColor,
+      onSwipe,
+      total,
+    ]
   );
 
   return (
@@ -169,8 +183,16 @@ export interface ConversationMessageFlatListProps {
 
   style?: StyleProp<ViewStyle>;
 
+  dateStyle?: StyleProp<TextStyle>;
+
   listEnd?: string;
 }
+
+const conversationMessageFlatListStyles = StyleSheet.create({
+  font12: {
+    fontSize: 12,
+  },
+});
 
 ConversationMessageFlatList.defaultProps = {
   //
