@@ -36,6 +36,46 @@ export function DetailOptions(
   } = props;
   const { atomicStyles } = TruesightChat;
 
+  const listChild = (
+    <View style={[styles.border, modalStyle]}>
+      {options?.map((item: any, index: number) => {
+        return (
+          <View
+            style={[atomicStyles.w100, atomicStyles.alignItemsCenter]}
+            key={index}
+          >
+            <TouchableOpacity
+              style={[atomicStyles.flexRowCenter, styles.modalItem, itemStyle]}
+              onPress={() => {
+                if (onOptionPress) {
+                  onOptionPress(item);
+                }
+              }}
+            >
+              <TextLib
+                style={[atomicStyles.texRegular, atomicStyles.textBlueColor]}
+              >
+                {typeof item === 'string' ? item : item?.name}
+              </TextLib>
+            </TouchableOpacity>
+            {index < options.length - 1 && (
+              <View
+                style={[
+                  atomicStyles.w90,
+                  atomicStyles.my1,
+                  {
+                    backgroundColor: dashColor ?? '#000',
+                    height: dashLength ?? 1,
+                  },
+                ]}
+              />
+            )}
+          </View>
+        );
+      })}
+    </View>
+  );
+
   return (
     <Modal
       isVisible={isVisible}
@@ -51,90 +91,13 @@ export function DetailOptions(
       <View style={[styles.modal]}>
         {options && options?.length > 10 ? (
           <ScrollView
-            style={[styles.border, { height: SCREEN_HEIGHT * 0.7 }, modalStyle]}
+            style={[styles.scroll, { height: SCREEN_HEIGHT * 0.7 }, modalStyle]}
+            showsVerticalScrollIndicator={false}
           >
-            {options?.map((item: any, index: number) => {
-              return (
-                <View key={index}>
-                  <TouchableOpacity
-                    style={[
-                      atomicStyles.flexRowCenter,
-                      styles.modalItem,
-                      itemStyle,
-                    ]}
-                    onPress={() => {
-                      if (onOptionPress) {
-                        onOptionPress(item);
-                      }
-                    }}
-                  >
-                    <TextLib
-                      style={[
-                        atomicStyles.texRegular,
-                        atomicStyles.textBlueColor,
-                      ]}
-                    >
-                      {typeof item === 'string' ? item : item?.name}
-                    </TextLib>
-                  </TouchableOpacity>
-                  {index < options.length - 1 && (
-                    <View
-                      style={[
-                        atomicStyles.w90,
-                        atomicStyles.my1,
-                        {
-                          backgroundColor: dashColor ?? '#000',
-                          height: dashLength ?? 1,
-                        },
-                      ]}
-                    />
-                  )}
-                </View>
-              );
-            })}
+            {listChild}
           </ScrollView>
         ) : (
-          <View style={[styles.border, modalStyle]}>
-            {options?.map((item: any, index: number) => {
-              return (
-                <View key={index}>
-                  <TouchableOpacity
-                    style={[
-                      atomicStyles.flexRowCenter,
-                      styles.modalItem,
-                      itemStyle,
-                    ]}
-                    onPress={() => {
-                      if (onOptionPress) {
-                        onOptionPress(item);
-                      }
-                    }}
-                  >
-                    <TextLib
-                      style={[
-                        atomicStyles.texRegular,
-                        atomicStyles.textBlueColor,
-                      ]}
-                    >
-                      {typeof item === 'string' ? item : item?.name}
-                    </TextLib>
-                  </TouchableOpacity>
-                  {index < options.length - 1 && (
-                    <View
-                      style={[
-                        atomicStyles.w90,
-                        atomicStyles.my1,
-                        {
-                          backgroundColor: dashColor ?? '#000',
-                          height: dashLength ?? 1,
-                        },
-                      ]}
-                    />
-                  )}
-                </View>
-              );
-            })}
-          </View>
+          listChild
         )}
 
         {cancel && (
