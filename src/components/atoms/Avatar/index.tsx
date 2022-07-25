@@ -10,7 +10,7 @@ import { useThemeValue } from 'react-native-redux-theming';
 
 export function Avatar(props: PropsWithChildren<AvatarProps>): ReactElement {
   const { avatarSource, avatarRadius, avatarStyle } = props;
-  const { atomicStyles } = TruesightChat;
+  const { serverUrl } = TruesightChat;
 
   const messageBackgroundOtherColor = useThemeValue<TruesightThemeExtension>(
     'messageBackgroundOtherColor'
@@ -30,10 +30,16 @@ export function Avatar(props: PropsWithChildren<AvatarProps>): ReactElement {
         ]}
       >
         <Image
-          style={[atomicStyles.w100, atomicStyles.h100, avatarStyles.border]}
+          style={[
+            {
+              height: avatarRadius,
+              width: avatarRadius,
+            },
+            avatarStyles.border,
+          ]}
           source={
             avatarSource
-              ? { uri: TruesightChat.serverUrl + avatarSource }
+              ? { uri: serverUrl + avatarSource }
               : require('../../../../assets/images/default-avatar.png')
           }
         />

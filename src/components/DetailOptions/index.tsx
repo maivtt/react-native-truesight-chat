@@ -4,6 +4,8 @@ import styles from './DetailOptions.scss';
 import nameof from 'ts-nameof.macro';
 import TruesightChat from 'react-native-truesight-chat';
 import {
+  Dimensions,
+  ScrollView,
   StyleProp,
   TextStyle,
   TouchableOpacity,
@@ -12,6 +14,8 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modal';
 import TextLib from '../atoms/TextLib';
+
+const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
 
 export function DetailOptions(
   props: PropsWithChildren<DetailOptionsProps>
@@ -45,48 +49,94 @@ export function DetailOptions(
       ]}
     >
       <View style={[styles.modal]}>
-        <View style={[styles.border, modalStyle]}>
-          {options?.map((item: any, index: number) => {
-            return (
-              <>
-                <TouchableOpacity
-                  style={[
-                    atomicStyles.flexRowCenter,
-                    styles.modalItem,
-                    itemStyle,
-                  ]}
-                  onPress={() => {
-                    if (onOptionPress) {
-                      onOptionPress(item);
-                    }
-                  }}
-                  key={index}
-                >
-                  <TextLib
+        {options && options?.length > 10 ? (
+          <ScrollView
+            style={[styles.border, { height: SCREEN_HEIGHT * 0.7 }, modalStyle]}
+          >
+            {options?.map((item: any, index: number) => {
+              return (
+                <View key={index}>
+                  <TouchableOpacity
                     style={[
-                      atomicStyles.texRegular,
-                      atomicStyles.textBlueColor,
+                      atomicStyles.flexRowCenter,
+                      styles.modalItem,
+                      itemStyle,
                     ]}
+                    onPress={() => {
+                      if (onOptionPress) {
+                        onOptionPress(item);
+                      }
+                    }}
                   >
-                    {typeof item === 'string' ? item : item?.name}
-                  </TextLib>
-                </TouchableOpacity>
-                {index < options.length - 1 && (
-                  <View
+                    <TextLib
+                      style={[
+                        atomicStyles.texRegular,
+                        atomicStyles.textBlueColor,
+                      ]}
+                    >
+                      {typeof item === 'string' ? item : item?.name}
+                    </TextLib>
+                  </TouchableOpacity>
+                  {index < options.length - 1 && (
+                    <View
+                      style={[
+                        atomicStyles.w90,
+                        atomicStyles.my1,
+                        {
+                          backgroundColor: dashColor ?? '#000',
+                          height: dashLength ?? 1,
+                        },
+                      ]}
+                    />
+                  )}
+                </View>
+              );
+            })}
+          </ScrollView>
+        ) : (
+          <View style={[styles.border, modalStyle]}>
+            {options?.map((item: any, index: number) => {
+              return (
+                <View key={index}>
+                  <TouchableOpacity
                     style={[
-                      atomicStyles.w90,
-                      atomicStyles.my1,
-                      {
-                        backgroundColor: dashColor ?? '#000',
-                        height: dashLength ?? 1,
-                      },
+                      atomicStyles.flexRowCenter,
+                      styles.modalItem,
+                      itemStyle,
                     ]}
-                  />
-                )}
-              </>
-            );
-          })}
-        </View>
+                    onPress={() => {
+                      if (onOptionPress) {
+                        onOptionPress(item);
+                      }
+                    }}
+                  >
+                    <TextLib
+                      style={[
+                        atomicStyles.texRegular,
+                        atomicStyles.textBlueColor,
+                      ]}
+                    >
+                      {typeof item === 'string' ? item : item?.name}
+                    </TextLib>
+                  </TouchableOpacity>
+                  {index < options.length - 1 && (
+                    <View
+                      style={[
+                        atomicStyles.w90,
+                        atomicStyles.my1,
+                        {
+                          backgroundColor: dashColor ?? '#000',
+                          height: dashLength ?? 1,
+                        },
+                      ]}
+                    />
+                  )}
+                </View>
+              );
+            })}
+          </View>
+        )}
+
         {cancel && (
           <TouchableOpacity
             style={[
@@ -121,7 +171,7 @@ export interface DetailOptionsProps {
 
   onBackdropPress: () => void;
 
-  onOptionPress?: (option: string) => void;
+  onOptionPress?: (option: any) => void;
 
   onCancel?: () => void;
 

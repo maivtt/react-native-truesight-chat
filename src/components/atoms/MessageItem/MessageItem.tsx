@@ -140,7 +140,6 @@ const MessageItem: FC<PropsWithChildren<MessageItemProps>> = (
                             }
                           : require('../../../../assets/images/default-avatar.png')
                       }
-                      defaultSource={require('../../../../assets/images/default-avatar.png')}
                     />
                   )}
                 </View>
