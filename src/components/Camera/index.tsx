@@ -2,11 +2,9 @@ import type { PropsWithChildren, ReactElement } from 'react';
 import React from 'react';
 import styles from './Camera.scss';
 import nameof from 'ts-nameof.macro';
-import { RNCamera } from 'react-native-camera';
 import {
   ActivityIndicator,
   Image,
-  Platform,
   Pressable,
   SafeAreaView,
   TouchableOpacity,
@@ -21,16 +19,14 @@ import TruesightChat, {
 import { useThemeValue } from 'react-native-redux-theming';
 import { useCamera } from '../../services/use-camera';
 
-const PLATFORM_IS_ANDROID: boolean = Platform.OS === 'android';
-
 export function Camera(props: PropsWithChildren<CameraProps>): ReactElement {
-  const { onCancel, loading, onSend, sendLabel } = props;
+  const { cameraComponent, onCancel, loading, onSend, sendLabel } = props;
   const { atomicStyles } = TruesightChat;
   const primaryColor = useThemeValue('primaryColor');
 
   const [
-    ref,
-    cameraType,
+    ,
+    ,
     handleChangeCamera,
     currentImage,
     handleClearPhoto,
@@ -51,23 +47,7 @@ export function Camera(props: PropsWithChildren<CameraProps>): ReactElement {
 
   return (
     <>
-      <RNCamera
-        style={styles.camera}
-        flashMode="auto"
-        captureAudio={false}
-        useNativeZoom={true}
-        pictureSize={PLATFORM_IS_ANDROID ? '2048x1536' : undefined}
-        useCamera2Api={true}
-        //defaultVideoQuality={RNCamera.Constants.VideoQuality['4:3']}
-        ref={ref}
-        type={cameraType}
-        androidCameraPermissionOptions={{
-          title: 'Permission to use camera',
-          message: 'We need your permission to use your camera',
-          buttonPositive: 'Ok',
-          buttonNegative: 'Cancel',
-        }}
-      />
+      {cameraComponent}
       <SafeAreaView style={styles.bottom}>
         <TouchableOpacity style={styles.changeCamera} onPress={onCancel}>
           <SvgIcon
@@ -125,6 +105,8 @@ export interface CameraProps {
   onSend?: (pic: ImagePickerResponse[]) => void;
 
   sendLabel?: string;
+
+  cameraComponent?: ReactElement;
 }
 
 Camera.defaultProps = {

@@ -5,14 +5,13 @@ import type { StyleProp, ViewStyle } from 'react-native';
 import { Keyboard, View } from 'react-native';
 import {
   AnimatedPicker,
+  AnimatedPickerProps,
   AttachmentType,
   Conversation,
   ConversationFooter,
   ConversationMessage,
-  ImagePickerResponse,
 } from 'react-native-truesight-chat';
 import ConversationMessageFlatList from '../ConversationMessageFlatList';
-import Camera from '../Camera';
 import { useChat } from '../../services/use-chat';
 import { useImage } from '../../services/use-image';
 import styles from './ConversationChat.scss';
@@ -29,6 +28,7 @@ export function ConversationChat(
     newMessage,
     onRemoveMessage,
     style,
+    ...resProps
   } = props;
   const [attachmentType, setAttachmentType] = React.useState(
     AttachmentType.None
@@ -52,8 +52,6 @@ export function ConversationChat(
     handleSelectedMessage,
     handleClearReplyMessage,
     handleEmoji,
-    cameraVisible,
-    handleChangeCameraVisible,
   ] = useChat(conversation, globalUser, newMessage, onRemoveMessage);
 
   const [
@@ -125,27 +123,15 @@ export function ConversationChat(
             reset={reset}
             loadMoreImages={loadMoreImages}
             numberSelectedItem={numberSelectedItem}
-            onCapture={handleChangeCameraVisible}
+            {...resProps}
           />
         }
       />
-
-      {cameraVisible && (
-        <Camera
-          loading={typingLoading}
-          onCancel={handleChangeCameraVisible}
-          onSend={(img: ImagePickerResponse[]) => {
-            handleChooseImage(img);
-            handleChangeCameraVisible();
-            setAttachmentType(AttachmentType.None);
-          }}
-        />
-      )}
     </View>
   );
 }
 
-export interface ConversationChatProps {
+export interface ConversationChatProps extends AnimatedPickerProps {
   navigation: any;
 
   conversation: Conversation;

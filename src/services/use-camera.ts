@@ -1,18 +1,17 @@
 import type { Ref } from 'react';
 import React from 'react';
-import type { RNCamera, TakePictureResponse } from 'react-native-camera';
 
 export function useCamera(): [
-  React.RefObject<RNCamera>,
+  React.RefObject<any>,
   'front' | 'back',
   () => Promise<void>,
-  TakePictureResponse | undefined,
+  any,
   () => void,
   () => Promise<void>
 ] {
-  const ref: Ref<RNCamera> = React.useRef<RNCamera>(null);
+  const ref: Ref<any> = React.useRef<any>(null);
 
-  const [currentImage, setCurrentImage] = React.useState<TakePictureResponse>();
+  const [currentImage, setCurrentImage] = React.useState<any>();
 
   const [cameraType, setCameraType] = React.useState<'front' | 'back'>('back');
 
@@ -25,7 +24,7 @@ export function useCamera(): [
   }, [cameraType]);
 
   const handleCapture = React.useCallback(async () => {
-    const photo: TakePictureResponse = await ref.current!.takePictureAsync();
+    const photo: any = await ref.current!.takePictureAsync();
     setCurrentImage(photo);
   }, []);
 

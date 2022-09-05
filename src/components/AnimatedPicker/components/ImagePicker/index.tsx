@@ -33,9 +33,10 @@ export function ImagePicker(
     reset,
     loadMoreImages,
     numberSelectedItem,
-    onCapture,
+    onCaptureVisible,
     takePhotoLabel,
     sendImageLabel,
+    hasCamera,
   } = props;
   const { atomicStyles } = TruesightChat;
   const primaryColor = useThemeValue('primaryColor');
@@ -55,14 +56,14 @@ export function ImagePicker(
     ({ item, index }: ListRenderItemInfo<any>) => {
       return (
         <>
-          {index === 0 && (
+          {index === 0 && hasCamera && (
             <TouchableOpacity
               style={[
                 atomicStyles.justifyContentCenter,
                 atomicStyles.alignItemsCenter,
                 { height: SCREEN_WIDTH / 3, width: SCREEN_WIDTH / 3 + 2 },
               ]}
-              onPress={onCapture}
+              onPress={onCaptureVisible}
             >
               {takePhotoLabel && (
                 <TextLib style={atomicStyles.mb2}>{takePhotoLabel}</TextLib>
@@ -87,7 +88,14 @@ export function ImagePicker(
         </>
       );
     },
-    [atomicStyles, onCapture, onSelectHandle, selectItemsObject, takePhotoLabel]
+    [
+      atomicStyles,
+      hasCamera,
+      onCaptureVisible,
+      onSelectHandle,
+      selectItemsObject,
+      takePhotoLabel,
+    ]
   );
 
   return (
@@ -156,15 +164,17 @@ export interface ImagePickerProps {
 
   numberSelectedItem?: number;
 
-  onCapture?: () => void;
+  onCaptureVisible?: () => void;
 
   takePhotoLabel?: string;
 
   sendImageLabel?: string;
+
+  hasCamera?: boolean;
 }
 
 ImagePicker.defaultProps = {
-  //
+  hasCamera: false,
 };
 
 ImagePicker.displayName = nameof(ImagePicker);

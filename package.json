@@ -1,6 +1,6 @@
 {
   "name": "react-native-truesight-chat",
-  "version": "0.1.3-rc.1",
+  "version": "0.1.3-rc.2",
   "description": "react native truesight app chat",
   "main": "src/index",
   "types": "lib/typescript/index.d.ts",
@@ -181,7 +181,6 @@
     "moment": "^2.29.3",
     "react-native-atomic-styles": "^0.0.2",
     "react-native-blob-util": "^0.16.0",
-    "react-native-camera": "^4.2.1",
     "react-native-document-picker": "^8.1.1",
     "react-native-file-viewer": "^2.1.5",
     "react-native-image-viewing": "^0.2.2",
