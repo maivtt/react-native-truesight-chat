@@ -1,6 +1,6 @@
 {
   "name": "react-native-truesight-chat",
-  "version": "0.1.3-rc.2",
+  "version": "0.1.3-rc.3",
   "description": "react native truesight app chat",
   "main": "src/index",
   "types": "lib/typescript/index.d.ts",
@@ -84,7 +84,7 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
-    "react-native-gesture-handler": "^2.5.0",
+    "react-native-gesture-handler": "^2.6.0",
     "react-redux": "^8.0.2",
     "redux": "^4.2.0"
   },
@@ -188,7 +188,7 @@
     "react-native-pager-view": "^5.4.24",
     "react-native-permissions": "^3.3.1",
     "react-native-push-notification": "^8.1.1",
-    "react-native-reanimated": "2.4.1",
+    "react-native-reanimated": "^2.10.0",
     "react-native-redux-theming": "^0.1.8",
     "react-native-spinkit": "^1.5.1",
     "react-native-svg": "^12.3.0",
