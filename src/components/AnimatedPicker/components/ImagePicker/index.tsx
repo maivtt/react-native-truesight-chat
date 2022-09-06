@@ -146,7 +146,7 @@ export interface ImagePickerProps {
 
   overLimitedImageNumberHandle?: () => void;
 
-  endingPickImageHandle: (images: any[]) => void;
+  endingPickImageHandle?: (images: any[]) => void;
 
   header?: ReactElement;
 
