@@ -12,15 +12,7 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('screen');
 export function AnimatedPicker(
   props: PropsWithChildren<AnimatedPickerProps>
 ): ReactElement {
-  const {
-    type,
-    onCancel,
-    endingPickImageHandle,
-    fullScreen,
-    onEmoji,
-    style,
-    ...resProps
-  } = props;
+  const { type, fullScreen, onEmoji, style, ...resProps } = props;
 
   return (
     <>
@@ -33,13 +25,7 @@ export function AnimatedPicker(
             style,
           ]}
         >
-          {type === AttachmentType.Image && (
-            <ImagePicker
-              endingPickImageHandle={endingPickImageHandle}
-              onCancel={onCancel}
-              {...resProps}
-            />
-          )}
+          {type === AttachmentType.Image && <ImagePicker {...resProps} />}
           {type === AttachmentType.Sticker && (
             <EmojiPicker onEmojiPress={onEmoji} />
           )}
@@ -51,16 +37,6 @@ export function AnimatedPicker(
 
 export interface AnimatedPickerProps extends ImagePickerProps {
   type?: AttachmentType;
-
-  onCancel?: () => void;
-
-  limitImageNumber?: number;
-
-  overLimitedImageNumberHandle?: () => void;
-
-  endingPickImageHandle: (images: any[]) => void;
-
-  header?: ReactElement;
 
   fullScreen?: boolean;
 

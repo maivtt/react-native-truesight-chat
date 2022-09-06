@@ -145,6 +145,11 @@ export function useChat(
                     );
                   },
                 });
+            } else {
+              dispatch({
+                type: ConversationMessageReducerActionType.TurnOffLoading,
+              });
+              console.log('Lỗi không trả về list images');
             }
           },
           error: (axiosError: AxiosError) => {

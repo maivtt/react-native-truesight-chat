@@ -42,10 +42,10 @@ export function ImagePicker(
   const primaryColor = useThemeValue('primaryColor');
 
   const handlePressSendImage = React.useCallback(() => {
-    const images = Object.keys(selectItemsObject!).map(
+    const _images = Object.keys(selectItemsObject!).map(
       (item: string) => selectItemsObject![item].image
     );
-    endingPickImageHandle(images);
+    endingPickImageHandle(_images);
     if (reset) {
       reset();
     }
@@ -126,7 +126,9 @@ export function ImagePicker(
           ]}
         >
           {sendImageLabel && (
-            <TextLib style={[atomicStyles.textBold, { color: '#FFF' }]}>
+            <TextLib
+              style={[atomicStyles.text, atomicStyles.bold, { color: '#FFF' }]}
+            >
               {sendImageLabel +
                 (numberSelectedItem! > 1 ? numberSelectedItem : '')}
             </TextLib>
@@ -144,7 +146,7 @@ export interface ImagePickerProps {
 
   overLimitedImageNumberHandle?: () => void;
 
-  endingPickImageHandle: (images: ImagePickerResponse[]) => void;
+  endingPickImageHandle: (images: any[]) => void;
 
   header?: ReactElement;
 
