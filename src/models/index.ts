@@ -5,7 +5,7 @@ import { ConversationReadHistory } from './ConversationReadHistory';
 import { ConversationType } from './ConversationType';
 import nameof from 'ts-nameof.macro';
 import { Status } from './Status';
-import { ObjectField } from 'react3l-decorators';
+import { ObjectField } from 'react3l';
 import { GlobalUser } from './GlobalUser';
 
 ObjectField(ConversationConfiguration)(

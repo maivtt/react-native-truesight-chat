@@ -1,5 +1,5 @@
 import React from 'react';
-import { useBoolean, useSubscription } from 'react3l-common';
+import { useBoolean, useSubscription } from 'react3l';
 import { finalize } from 'rxjs';
 import type { AxiosError } from 'axios';
 import type {

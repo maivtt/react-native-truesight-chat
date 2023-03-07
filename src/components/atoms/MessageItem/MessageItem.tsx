@@ -4,7 +4,7 @@ import nameof from 'ts-nameof.macro';
 import { Image, StyleProp, StyleSheet, TextStyle, View } from 'react-native';
 import type { ConversationMessage } from 'src/models/ConversationMessage';
 import styles from './MessageItem.scss';
-import { useBoolean } from 'react3l-common';
+import { useBoolean } from 'react3l';
 import moment from 'moment';
 import Animated, {
   useAnimatedStyle,

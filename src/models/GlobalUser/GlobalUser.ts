@@ -1,5 +1,4 @@
-import { Model } from 'react3l-common';
-import { Field } from 'react3l-decorators';
+import { Field, Model } from 'react3l';
 import type { GlobalUserType } from 'src/models/GlobalUserType';
 
 export class GlobalUser extends Model {

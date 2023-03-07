@@ -2,7 +2,7 @@ import type { Dispatch, Reducer } from 'react';
 import React from 'react';
 import type { Observable, Subscription } from 'rxjs';
 import { forkJoin } from 'rxjs';
-import type { Model, ModelFilter } from 'react3l-common';
+import type { Model, ModelFilter } from 'react3l';
 
 const DEFAULT_TAKE = 10;
 

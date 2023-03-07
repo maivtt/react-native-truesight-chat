@@ -1,5 +1,4 @@
-import { Model } from 'react3l-common';
-import { Field } from 'react3l-decorators';
+import { Field, Model } from 'react3l';
 import type { ConversationConfiguration } from 'src/models/ConversationConfiguration';
 import type { ConversationType } from 'src/models/ConversationType';
 import type { GlobalUser } from 'src/models/GlobalUser';

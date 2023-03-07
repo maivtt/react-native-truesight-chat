@@ -6,7 +6,7 @@ import type { StyleProp, ViewStyle } from 'react-native';
 import { Platform, Pressable, View } from 'react-native';
 import type { ConversationAttachment } from 'src/models/ConversationAttachment';
 import ImageView from 'react-native-image-viewing';
-import { useBoolean } from 'react3l-common';
+import { useBoolean } from 'react3l';
 import { useThemeValue } from 'react-native-redux-theming';
 import ImageMessenger from './components/ImageMessenger/ImageMessenger';
 import type {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Keyboard } from 'react-native';
-import { StringFilter } from 'react3l-advanced-filters';
+import { StringFilter } from 'react3l';
 import { finalize, Subscription } from 'rxjs';
 import type { AxiosError } from 'axios';
 import TruesightChat, {
@@ -55,9 +55,9 @@ export function useListGlobalUser(
               list: result,
             });
           },
-          error: (error: AxiosError<any>) => {
-            if (error.response?.status === 400 && error.response?.data) {
-              const e = error.response.data.errors;
+          error: (_error: AxiosError<any>) => {
+            if (_error.response?.status === 400 && _error.response?.data) {
+              const e = _error.response.data.errors;
               if (e) {
                 dispatch({
                   type: ListGlobalUserReducerActionType.SetError,

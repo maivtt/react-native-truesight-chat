@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSubscription } from 'react3l-common';
+import { useSubscription } from 'react3l';
 import { finalize } from 'rxjs';
 import type { AxiosError } from 'axios';
 import TruesightChat, { Conversation } from 'react-native-truesight-chat';
