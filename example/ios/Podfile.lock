@@ -260,7 +260,7 @@ PODS:
     - React-Core
   - react-native-spinkit (1.4.1):
     - React
-  - react-native-truesight-chat (0.1.3-rc.5):
+  - react-native-truesight-chat (0.1.3-rc.9):
     - React-Core
   - React-RCTActionSheet (0.63.4):
     - React-Core/RCTActionSheetHeaders (= 0.63.4)
@@ -336,7 +336,7 @@ PODS:
     - React
   - RNPermissions (3.3.1):
     - React-Core
-  - RNReanimated (2.8.0):
+  - RNReanimated (2.14.4):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -616,7 +616,7 @@ SPEC CHECKSUMS:
   react-native-pager-view: 95d0418c3c74279840abec6926653d32447bafb6
   react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
   react-native-spinkit: da294fd828216ad211fe36a5c14c1e09f09e62db
-  react-native-truesight-chat: 501de90124fcfc664df10e3c67d0f44bb081182e
+  react-native-truesight-chat: 77deb57d74d5f441d1cae26c2a6d922c31ef087a
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0
@@ -634,7 +634,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: bad495418bcbd3ab47017a38d93d290ebd406f50
   RNImageHelper: efb1e1b39f0e19a40b8873c2c1c9614c0dd150ed
   RNPermissions: 34d678157c800b25b22a488e4d8babb57456e796
-  RNReanimated: 65989f9ee4f06e8e699e94ae855faf8e4e630216
+  RNReanimated: ac1be9c3119544f5ec3ca0f3fd89b711a23d6afc
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
   RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
   RNToasty: 4bbf8d6a94d46263ad733a38b9f15868a95f7fe1
